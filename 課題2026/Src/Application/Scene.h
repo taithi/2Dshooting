@@ -11,12 +11,11 @@ private:
 	KdTexture m_radarTex;
 
 	// 行列 ・・・ 座標などの情報
-	//Math::Matrix matrix;
+	Math::Matrix matrix;
 
 	C_Player player;
 	C_Radar radar;
 
-	int test = 0;
 public:
 
 	// 初期設定
