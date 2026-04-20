@@ -2,7 +2,7 @@
 
 class Scene;
 
-class C_Radar
+class C_Bullet
 {
 private:
 
@@ -11,11 +11,9 @@ private:
 	Math::Matrix mat;
 	KdTexture* tex;
 
-	const static int radarNum = 5;
-	Math::Vector2 pos[radarNum];
-	Math::Vector2 move[radarNum];
-	Math::Vector2 size[radarNum];
-	bool flg[radarNum];
+	Math::Vector2 pos;
+	Math::Vector2 move;
+	bool flg;
 	int wait = 0;
 public:
 
@@ -23,6 +21,8 @@ public:
 	void Update(int playerX,int playerY);
 	void Draw();
 	void SetTex(KdTexture* m_tex) { tex = m_tex; }
-	void SetFlg(bool m_flg,int num) { flg[num] = m_flg; }
+	void SetFlg(bool m_flg) { flg = m_flg; }
 	void SetOwner(Scene* owner){m_owner = owner;}
+
+	Math::Vector2 GetPos(){ return pos; }
 };

@@ -9,7 +9,15 @@ void C_Player::Init()
 
 void C_Player::Update()
 {
-	CommandKey();
+	//プレイヤー移動////////////////////////////////////////////////
+	if (GetAsyncKeyState('D') & 0x8000) move.x += movePow;//右移動
+
+	if (GetAsyncKeyState('A') & 0x8000) move.x -= movePow;//左移動
+
+	if (GetAsyncKeyState('W') & 0x8000) move.y += movePow;//上移動
+
+	if (GetAsyncKeyState('S') & 0x8000) move.y -= movePow;//下移動
+	////////////////////////////////////////////////////////////////
 
 	pos = move;
 
@@ -23,25 +31,3 @@ void C_Player::Draw()
 	SHADER.m_spriteShader.DrawTex(tex, Math::Rectangle(0, 0, 64, 64), &color);
 }
 
-void C_Player::CommandKey()
-{
-	//プレイヤー移動////////////////////////////////////////////////
-	if (GetAsyncKeyState('D') & 0x8000) move.x += movePow;//右移動
-
-	if (GetAsyncKeyState('A') & 0x8000) move.x -= movePow;//左移動
-
-	if (GetAsyncKeyState('W') & 0x8000) move.y += movePow;//上移動
-
-	if (GetAsyncKeyState('S') & 0x8000) move.y -= movePow;//下移動
-	////////////////////////////////////////////////////////////////
-
-	C_Radar* radar = m_owner->GetRadar();
-
-
-	for (int i = 0; i < 5; i++)
-
-	{
-		//レーダー発信
-		if (GetAsyncKeyState('J') & 0x8000) radar->SetFlg(true, i);
-	}
-}

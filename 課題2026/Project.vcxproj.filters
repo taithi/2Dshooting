@@ -144,7 +144,7 @@
     <ClInclude Include="Src\Application\Player\Palyer.h">
       <Filter>Src\Application\Player</Filter>
     </ClInclude>
-    <ClInclude Include="Src\Application\Player\Radar.h">
+    <ClInclude Include="Src\Application\Player\Bullet.h">
       <Filter>Src\Application\Player</Filter>
     </ClInclude>
   </ItemGroup>
@@ -215,7 +215,7 @@
     <ClCompile Include="Src\Application\Player\Palyer.cpp">
       <Filter>Src\Application\Player</Filter>
     </ClCompile>
-    <ClCompile Include="Src\Application\Player\Radar.cpp">
+    <ClCompile Include="Src\Application\Player\Bullet.cpp">
       <Filter>Src\Application\Player</Filter>
     </ClCompile>
   </ItemGroup>

@@ -4,13 +4,13 @@
 void Scene::Draw2D()
 {
 	player.Draw();
-	radar.Draw();
+	bullet.Draw();
 }
 
 void Scene::Update()
 {
 	player.Update();
-	radar.Update(player.GetPos().x,player.GetPos().y );
+	bullet.Update(player.GetPos().x,player.GetPos().y );
 }
 
 void Scene::Init()
@@ -21,22 +21,22 @@ void Scene::Init()
 	player.Init();
 	player.set0wner(this);
 
-	m_radarTex.Load("Texture/radar.png");
-	radar.SetTex(&m_radarTex);
-	radar.Init();
-	radar.SetOwner(this);
+	m_bulletTex.Load("Texture/bullet.png");
+	bullet.SetTex(&m_bulletTex);
+	bullet.Init();
+	bullet.SetOwner(this);
 }
 
 void Scene::Release()
 {
 	// âÊëúÇÃâï˙èàóù
 	m_playerTex.Release();
-	m_radarTex.Release();
+	m_bulletTex.Release();
 }
 
 void Scene::ImGuiUpdate()
 {
-	return;
+	//return;
 
 	ImGui::SetNextWindowPos(ImVec2(20, 20), ImGuiSetCond_Once);
 	ImGui::SetNextWindowSize(ImVec2(200, 100), ImGuiSetCond_Once);
@@ -45,6 +45,9 @@ void Scene::ImGuiUpdate()
 	if (ImGui::Begin("Debug Window"))
 	{
 		ImGui::Text("FPS : %d", APP.m_fps);
+
+		ImGui::Text("player: x%f y%f", player.GetPos().x, player.GetPos().y);
+		ImGui::Text("bullet: x%f y%f", bullet.GetPos().x, bullet.GetPos().y);
 	}
 	ImGui::End();
 }
