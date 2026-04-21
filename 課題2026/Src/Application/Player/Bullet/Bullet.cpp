@@ -4,14 +4,14 @@ void C_Bullet::Init()
 {
 	tex.Load("Texture/bullet.png");
 
-		pos = { 0,0 };
-		move = {0,0};
-		flg = false;
+	pos = { 0,0 };
+	move = { 0,0 };
+	flg = false;
 }
 
 void C_Bullet::Update(int playerX, int playerY)
 {
-	
+
 
 	if (GetAsyncKeyState('J') & 0x8000)
 	{
@@ -22,9 +22,9 @@ void C_Bullet::Update(int playerX, int playerY)
 			move.x = playerX;
 			move.y = playerY;
 		}
-		
+
 	}
-	
+
 	if (flg == true)
 	{
 		move.y += 10;
@@ -35,21 +35,21 @@ void C_Bullet::Update(int playerX, int playerY)
 		}
 	}
 
-			
+
 	pos = move;
 	Math::Matrix trans = Math::Matrix::CreateTranslation(pos.x, pos.y, 0);
 	//Math::Matrix scale = Math::Matrix::CreateScale(size.x, size.y, 0);
-	mat =  trans;
+	mat = trans;
 }
 
 void C_Bullet::Draw()
 {
-	if(flg)
+	if (flg)
 	{
-			Math::Color color = { 1,1,1,1 };
+		Math::Color color = { 1,1,1,1 };
 
-			SHADER.m_spriteShader.SetMatrix(mat);
-			SHADER.m_spriteShader.DrawTex(&tex, Math::Rectangle(0, 0, 16, 16), &color);
+		SHADER.m_spriteShader.SetMatrix(mat);
+		SHADER.m_spriteShader.DrawTex(&tex, Math::Rectangle(0, 0, 16, 16), &color);
 	}
 }
 

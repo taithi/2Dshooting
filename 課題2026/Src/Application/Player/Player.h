@@ -1,4 +1,5 @@
 #pragma once
+#pragma once
 
 class Scene;
 class C_Bullet;
@@ -19,7 +20,7 @@ private:
 	C_Bullet* m_bullet = nullptr;
 public:
 	C_Player() {};
-	~C_Player() { Release();}
+	~C_Player();
 	void Init();
 	void Update();
 	void Draw();

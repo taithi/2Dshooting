@@ -1,37 +1,36 @@
 #include "main.h"
 #include "Scene.h"
+#include "Player/Player.h"
 
 void Scene::Draw2D()
 {
-	player.Draw();
-	bullet.Draw();
+	m_player->Draw();
 }
 
 void Scene::Update()
 {
-	player.Update();
-	bullet.Update(player.GetPos().x,player.GetPos().y );
+	m_player->Update();
 }
 
 void Scene::Init()
 {
 	// ‰æ‘œ‚Ì“Ç‚Ýž‚Ýˆ—
-	m_playerTex.Load("Texture/player.png");
-	player.SetTex(&m_playerTex);
-	player.Init();
-	player.set0wner(this);
+	
+	m_player = new C_Player();
+	m_player->Init();
+	//player.set0wner(this);
 
-	m_bulletTex.Load("Texture/bullet.png");
-	bullet.SetTex(&m_bulletTex);
-	bullet.Init();
-	bullet.SetOwner(this);
+	
+	//bullet.SetOwner(this);
 }
 
 void Scene::Release()
 {
 	// ‰æ‘œ‚Ì‰ð•úˆ—
-	m_playerTex.Release();
-	m_bulletTex.Release();
+	if(m_player)
+	{
+		delete m_player;
+	}
 }
 
 void Scene::ImGuiUpdate()
@@ -46,8 +45,8 @@ void Scene::ImGuiUpdate()
 	{
 		ImGui::Text("FPS : %d", APP.m_fps);
 
-		ImGui::Text("player: x%f y%f", player.GetPos().x, player.GetPos().y);
-		ImGui::Text("bullet: x%f y%f", bullet.GetPos().x, bullet.GetPos().y);
+		ImGui::Text("player: x%f y%f", m_player->GetPos().x, m_player->GetPos().y);
+		//ImGui::Text("bullet: x%f y%f", bullet.GetPos().x, bullet.GetPos().y);
 	}
 	ImGui::End();
 }

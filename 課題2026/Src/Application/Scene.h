@@ -1,6 +1,7 @@
 #pragma once
-#include"Player/Palyer.h"
-#include"Player/Bullet.h"
+
+class C_Player;
+//class C_Bullet;
 
 class Scene
 {
@@ -8,13 +9,12 @@ private:
 
 	// テクスチャ ・・・ 画像データ
 	KdTexture m_playerTex;
-	KdTexture m_bulletTex;
 
 	// 行列 ・・・ 座標などの情報
 	Math::Matrix matrix;
 
-	C_Player player;
-	C_Bullet bullet;
+	C_Player*m_player=nullptr;
+	//C_Bullet* m_bullet=nullptr;
 
 public:
 
@@ -33,8 +33,6 @@ public:
 	// GUI処理
 	void ImGuiUpdate();
 
-	C_Bullet* GetRadar() { return &bullet; }
-	C_Player* GetPlayer() { return &player; }
 private:
 
 	Scene() {}

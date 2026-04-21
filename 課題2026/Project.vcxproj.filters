@@ -46,6 +46,9 @@
     <Filter Include="Src\Application\Player">
       <UniqueIdentifier>{9257a2a4-0289-41f7-8351-fdca0ff9f1d0}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Src\Application\Player\Bullet">
+      <UniqueIdentifier>{05ea4fd6-09b6-478d-9d81-8853605e2fe2}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="src\Pch.h">
@@ -141,11 +144,11 @@
     <ClInclude Include="Src\Application\Scene.h">
       <Filter>Src\Application</Filter>
     </ClInclude>
-    <ClInclude Include="Src\Application\Player\Palyer.h">
+    <ClInclude Include="Src\Application\Player\Player.h">
       <Filter>Src\Application\Player</Filter>
     </ClInclude>
-    <ClInclude Include="Src\Application\Player\Bullet.h">
-      <Filter>Src\Application\Player</Filter>
+    <ClInclude Include="Src\Application\Player\Bullet\Bullet.h">
+      <Filter>Src\Application\Player\Bullet</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
@@ -212,11 +215,11 @@
     <ClCompile Include="Src\Application\Scene.cpp">
       <Filter>Src\Application</Filter>
     </ClCompile>
-    <ClCompile Include="Src\Application\Player\Palyer.cpp">
+    <ClCompile Include="Src\Application\Player\Player.cpp">
       <Filter>Src\Application\Player</Filter>
     </ClCompile>
-    <ClCompile Include="Src\Application\Player\Bullet.cpp">
-      <Filter>Src\Application\Player</Filter>
+    <ClCompile Include="Src\Application\Player\Bullet\Bullet.cpp">
+      <Filter>Src\Application\Player\Bullet</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>

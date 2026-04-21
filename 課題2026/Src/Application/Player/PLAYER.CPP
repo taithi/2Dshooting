@@ -1,5 +1,4 @@
 #include "Player.h"
-#include "../Scene.h"
 #include"Bullet/Bullet.h"
 
 void C_Player::Init()
@@ -8,6 +7,7 @@ void C_Player::Init()
 	pos = { 0,0 };
 	move = { 0,0 };
 
+	m_bullet = new C_Bullet();
 	m_bullet->Init();
 }
 
@@ -45,3 +45,12 @@ void C_Player::Release()
 	m_bullet->Release();
 }
 
+C_Player::~C_Player()
+{
+	 Release(); 
+
+	 if (m_bullet)
+	 {
+		 delete m_bullet;
+	 }
+}
