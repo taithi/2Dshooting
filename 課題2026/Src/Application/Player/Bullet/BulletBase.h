@@ -1,12 +1,8 @@
 #pragma once
 
-class Scene;
-
 class C_Bullet
 {
 private:
-
-	Scene* m_owner;
 
 	Math::Matrix mat;
 	KdTexture tex;
@@ -30,7 +26,4 @@ public:
 	void Release();
 
 	void SetFlg(bool m_flg) { flg = m_flg; }
-	void SetOwner(Scene* owner) { m_owner = owner; }
-
-	Math::Vector2 GetPos() { return pos; }
-};
+}; 

@@ -150,6 +150,9 @@
     <ClInclude Include="Src\Application\Player\Bullet\Bullet.h">
       <Filter>Src\Application\Player\Bullet</Filter>
     </ClInclude>
+    <ClInclude Include="Src\Application\Player\Bullet\BulletBase.h">
+      <Filter>Src\Application\Player\Bullet</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="src\Pch.cpp">
@@ -219,6 +222,9 @@
       <Filter>Src\Application\Player</Filter>
     </ClCompile>
     <ClCompile Include="Src\Application\Player\Bullet\Bullet.cpp">
+      <Filter>Src\Application\Player\Bullet</Filter>
+    </ClCompile>
+    <ClCompile Include="Src\Application\Player\Bullet\BulletBase.cpp">
       <Filter>Src\Application\Player\Bullet</Filter>
     </ClCompile>
   </ItemGroup>

@@ -13,6 +13,7 @@ void C_Bullet::Update(int playerX, int playerY)
 {
 
 
+
 	if (GetAsyncKeyState('J') & 0x8000)
 	{
 		if (flg == false)
@@ -56,4 +57,9 @@ void C_Bullet::Draw()
 void C_Bullet::Release()
 {
 	tex.Release();
+}
+
+void C_Bullet::GetMousePos2(POINT* mousepos)
+{
+
 }
