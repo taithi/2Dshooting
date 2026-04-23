@@ -1,26 +1,32 @@
 #include "main.h"
 #include "Scene.h"
 #include "Player/Player.h"
+#include"Bullet/RifleBullet/RifleBullet.h"
 
 void Scene::Draw2D()
 {
 	m_player->Draw();
+	m_rifleBullet->Draw();
 }
 
 void Scene::Update()
 {
 	m_player->Update();
+	m_rifleBullet->Update();
 }
 
 void Scene::Init()
 {
 	// ‰æ‘œ‚Ì“Ç‚Ýž‚Ýˆ—
 	
-	m_player = new C_Player();
+	m_player = new Player();
 	m_player->Init();
-	//player.set0wner(this);
 
-	
+	m_rifleBullet = new RifleBullet();
+	m_rifleBullet->Init();
+	m_rifleBullet->SetPlayer(m_player);
+
+	//player.set0wner(this);
 	//bullet.SetOwner(this);
 }
 
@@ -30,6 +36,11 @@ void Scene::Release()
 	if(m_player)
 	{
 		delete m_player;
+	}
+
+	if (m_rifleBullet)
+	{
+		delete m_rifleBullet;
 	}
 }
 
@@ -46,7 +57,7 @@ void Scene::ImGuiUpdate()
 		ImGui::Text("FPS : %d", APP.m_fps);
 
 		ImGui::Text("player: x%f y%f", m_player->GetPos().x, m_player->GetPos().y);
-		//ImGui::Text("bullet: x%f y%f", bullet.GetPos().x, bullet.GetPos().y);
+		ImGui::Text("bullet: x%f y%f", m_rifleBullet->GetPos().x, m_rifleBullet->GetPos().y);
 	}
 	ImGui::End();
 }

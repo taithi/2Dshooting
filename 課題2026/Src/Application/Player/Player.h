@@ -1,10 +1,9 @@
 #pragma once
-#pragma once
 
 class Scene;
-class C_Bullet;
+class RifleBullets;
 
-class C_Player
+class Player
 {
 private:
 	Math::Vector2 pos;
@@ -17,14 +16,27 @@ private:
 	int scroll;
 
 	void Release();
-	C_Bullet* m_bullet = nullptr;
+	RifleBullets* m_rifleBullets = nullptr;
 public:
-	C_Player() {};
-	~C_Player();
+	Player() {};
+	~Player() { Release(); };
 	void Init();
 	void Update();
 	void Draw();
-	void CommandKey();
 	Math::Vector2 GetPos() { return pos; }
 	void set0wner(Scene* owner) { m_owner = owner; }
+
+	//マウス座標(メンバにｘとｙを持つ型)						
+	POINT mouse; //毎府フレームのマウス座標
+	POINT clickPos; //クリックした瞬間のマウス座標
+	POINT releasePos; //クリックした瞬間のマウス座標
+	bool clickFlg; //クリック入力用フラ
+	float radian;
+
+	int ScrWidth = 1280;  // 画面の横幅
+	int ScrHeight = 720;  // 画面の縦幅
+
+	POINT GetMousePos();
+
+	void GetMousePos2(POINT* mousepos);
 };

@@ -46,8 +46,14 @@
     <Filter Include="Src\Application\Player">
       <UniqueIdentifier>{9257a2a4-0289-41f7-8351-fdca0ff9f1d0}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Src\Application\Player\Bullet">
+    <Filter Include="Src\Application\Bullet">
       <UniqueIdentifier>{05ea4fd6-09b6-478d-9d81-8853605e2fe2}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Src\Application\Bullet\RifleBullet">
+      <UniqueIdentifier>{b597d7c7-4b4d-4525-ab3c-d335d0ec128f}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Src\Application\Bullet\BulletBase">
+      <UniqueIdentifier>{a439b274-5388-4f4b-9c29-706ba391aa6a}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>
@@ -147,11 +153,11 @@
     <ClInclude Include="Src\Application\Player\Player.h">
       <Filter>Src\Application\Player</Filter>
     </ClInclude>
-    <ClInclude Include="Src\Application\Player\Bullet\Bullet.h">
-      <Filter>Src\Application\Player\Bullet</Filter>
+    <ClInclude Include="Src\Application\Bullet\BulletBase\BulletBase.h">
+      <Filter>Src\Application\Bullet\BulletBase</Filter>
     </ClInclude>
-    <ClInclude Include="Src\Application\Player\Bullet\BulletBase.h">
-      <Filter>Src\Application\Player\Bullet</Filter>
+    <ClInclude Include="Src\Application\Bullet\RifleBullet\RifleBullet.h">
+      <Filter>Src\Application\Bullet\RifleBullet</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
@@ -218,14 +224,14 @@
     <ClCompile Include="Src\Application\Scene.cpp">
       <Filter>Src\Application</Filter>
     </ClCompile>
-    <ClCompile Include="Src\Application\Player\Player.cpp">
+    <ClCompile Include="Src\Application\Player\Palyer.cpp">
       <Filter>Src\Application\Player</Filter>
     </ClCompile>
-    <ClCompile Include="Src\Application\Player\Bullet\Bullet.cpp">
-      <Filter>Src\Application\Player\Bullet</Filter>
+    <ClCompile Include="Src\Application\Bullet\BulletBase\BulletBase.cpp">
+      <Filter>Src\Application\Bullet\BulletBase</Filter>
     </ClCompile>
-    <ClCompile Include="Src\Application\Player\Bullet\BulletBase.cpp">
-      <Filter>Src\Application\Player\Bullet</Filter>
+    <ClCompile Include="Src\Application\Bullet\RifleBullet\RifleBullet.cpp">
+      <Filter>Src\Application\Bullet\RifleBullet</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>

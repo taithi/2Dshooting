@@ -1,47 +1,53 @@
+#include "../main.h"
 #include "Player.h"
-#include "../Scene.h"
-#include"Bullet/Bullet.h"
 
-void C_Player::Init()
+void Player::Init()
 {
 	tex.Load("Texture/player.png");
 	pos = { 0,0 };
 	move = { 0,0 };
 
-	m_bullet->Init();
 }
 
-void C_Player::Update()
+void Player::Update()
 {
-	//プレイヤー移動////////////////////////////////////////////////
-	if (GetAsyncKeyState('D') & 0x8000) move.x += movePow;//右移動
-
-	if (GetAsyncKeyState('A') & 0x8000) move.x -= movePow;//左移動
-
-	if (GetAsyncKeyState('W') & 0x8000) move.y += movePow;//上移動
-
-	if (GetAsyncKeyState('S') & 0x8000) move.y -= movePow;//下移動
-	////////////////////////////////////////////////////////////////
-
-	m_bullet->Update(pos.x, pos.y);
-
-	pos = move;
-
+	
+	GetMousePos2(&mouse);
+	pos.x = mouse.x;
+	pos.y = mouse.y;
 	mat = Math::Matrix::CreateTranslation(pos.x, pos.y, 0);
 }
 
-void C_Player::Draw()
+void Player::Draw()
 {
 	Math::Color color = { 1,1,1,1 };
 	SHADER.m_spriteShader.SetMatrix(mat);
 	SHADER.m_spriteShader.DrawTex(&tex, Math::Rectangle(0, 0, 64, 64), &color);
-
-	m_bullet->Draw();
 }
 
-void C_Player::Release()
+
+void Player::Release()
 {
 	tex.Release();
-	m_bullet->Release();
+}
+
+POINT Player::GetMousePos()
+{
+	POINT mousepos; //戻り値
+
+	//マウスの座標取得
+	GetCursorPos(&mouse);
+
+	return mousepos;
+}
+
+void Player::GetMousePos2(POINT* mousepos)
+{
+	GetCursorPos(mousepos);
+	ScreenToClient(APP.m_window.GetWndHandle(), mousepos);
+
+	mousepos->x -= ScrWidth / 2;
+	mousepos->y -= ScrHeight / 2;
+	mousepos->y *= -1;
 }
 

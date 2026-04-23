@@ -1,7 +1,7 @@
 #pragma once
 
-class C_Player;
-//class C_Bullet;
+class Player;
+class RifleBullet;
 
 class Scene
 {
@@ -13,8 +13,9 @@ private:
 	// 行列 ・・・ 座標などの情報
 	Math::Matrix matrix;
 
-	C_Player*m_player=nullptr;
-	//C_Bullet* m_bullet=nullptr;
+	Player*m_player=nullptr;
+
+	RifleBullet* m_rifleBullet=nullptr;
 
 public:
 
