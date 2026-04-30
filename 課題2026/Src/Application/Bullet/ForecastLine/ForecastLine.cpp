@@ -1,5 +1,6 @@
 #include "ForecastLine.h"
 #include"../../Player/Player.h"
+#include"../../Player/PlayerMove/PlayerMove.h"
 void ForecastLine::Init()
 {
 	tex.Load("Texture/forecastLine.png");
@@ -8,8 +9,9 @@ void ForecastLine::Init()
 
 void ForecastLine::Update()
 {
+
 	//スタート地点
-	Math::Vector2 startPos = { -610,-50 };
+	Math::Vector2 startPos = m_playerMove->GetPos();
 
 	// マウスの現在地（ターゲット）
 	Math::Vector2 mousePos = { (float)m_player->mouse.x, (float)m_player->mouse.y };

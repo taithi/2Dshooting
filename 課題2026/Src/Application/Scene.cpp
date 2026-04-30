@@ -44,7 +44,7 @@ void Scene::Init()
 	m_rifleBullet = new RifleBullet();
 	m_rifleBullet->Init();
 	m_rifleBullet->SetPlayer(m_player);
-	//m_rifleBullet->SetPlayerMoove(m_playerMove); // m_bulletBase ではなく実体に設定
+	m_rifleBullet->SetPlayerMove(m_playerMove); // m_bulletBase ではなく実体に設定
 
 	m_bulletBase = new BulletBase();
 	m_bulletBase->Init();

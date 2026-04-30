@@ -1,4 +1,5 @@
 ﻿#include"RifleBullet.h"
+#include"../../Player/PlayerMove/PlayerMove.h"
 
 void RifleBullet::Init()
 {
@@ -17,7 +18,7 @@ void RifleBullet::Update()
 
 	if (!flg)
 	{
-		pos= { -610,-50 };
+		pos= m_playerMove->GetPos();
 	}
 
 	//pos += move;
