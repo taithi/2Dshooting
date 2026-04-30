@@ -6,6 +6,8 @@ class Bird;
 class Hit;
 class ReflectiveBlock;
 class ForecastLine;
+class PlayerMove;
+class BulletBase;
 
 class Scene
 {
@@ -27,7 +29,11 @@ private:
 
 	ReflectiveBlock* m_refBlock = nullptr;
 
-ForecastLine* m_forecastLine = nullptr;
+	ForecastLine* m_forecastLine = nullptr;
+
+	PlayerMove* m_playerMove = nullptr;
+
+	BulletBase* m_bulletBase = nullptr;
 public:
 
 	// èâä˙ê›íË

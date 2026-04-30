@@ -79,6 +79,9 @@
     <Filter Include="Src\Application\Bullet\ForecastLine">
       <UniqueIdentifier>{79b54b7d-3cff-4581-89b6-b5ef4841dd39}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Src\Application\Player\PlayerMove">
+      <UniqueIdentifier>{d12cd17a-2cf4-49db-a3f3-c28961aeedb7}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="src\Pch.h">
@@ -198,6 +201,9 @@
     <ClInclude Include="Src\Application\Bullet\ForecastLine\ForecastLine.h">
       <Filter>Src\Application\Bullet\ForecastLine</Filter>
     </ClInclude>
+    <ClInclude Include="Src\Application\Player\PlayerMove\PlayerMove.h">
+      <Filter>Src\Application\Player\PlayerMove</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="src\Pch.cpp">
@@ -286,6 +292,9 @@
     </ClCompile>
     <ClCompile Include="Src\Application\Bullet\ForecastLine\ForecastLine.cpp">
       <Filter>Src\Application\Bullet\ForecastLine</Filter>
+    </ClCompile>
+    <ClCompile Include="Src\Application\Player\PlayerMove\PlayerMove.cpp">
+      <Filter>Src\Application\Player\PlayerMove</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
