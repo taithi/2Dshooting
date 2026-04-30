@@ -55,6 +55,27 @@
     <Filter Include="Src\Application\Bullet\BulletBase">
       <UniqueIdentifier>{a439b274-5388-4f4b-9c29-706ba391aa6a}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Src\Application\Hit">
+      <UniqueIdentifier>{178617d7-478a-4aea-9233-88bcb04e66a2}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Src\Application\Target">
+      <UniqueIdentifier>{20f53051-418e-4dad-b172-5e10c32c7079}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Src\Application\Target\Enemy">
+      <UniqueIdentifier>{c8521154-27c0-4fc2-a018-73729b808af4}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Src\Application\Target\Item">
+      <UniqueIdentifier>{9d3c3646-1e9b-4dc5-82c4-c447e18aff09}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Src\Application\Target\TargetBase">
+      <UniqueIdentifier>{c834b125-2104-46f1-bd9a-8f5f57504ba3}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Src\Application\Target\Enemy\Bird">
+      <UniqueIdentifier>{c2112259-6e2f-40ab-86dc-37bed9d62d73}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Src\Application\Target\ReflectiveBlock">
+      <UniqueIdentifier>{d8f0f1c9-ff9c-438f-9608-eb61ef8900ea}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="src\Pch.h">
@@ -159,6 +180,18 @@
     <ClInclude Include="Src\Application\Bullet\RifleBullet\RifleBullet.h">
       <Filter>Src\Application\Bullet\RifleBullet</Filter>
     </ClInclude>
+    <ClInclude Include="Src\Application\HIt\Hit.h">
+      <Filter>Src\Application\Hit</Filter>
+    </ClInclude>
+    <ClInclude Include="Src\Application\Target\TargetBase\TargetBase.h">
+      <Filter>Src\Application\Target\TargetBase</Filter>
+    </ClInclude>
+    <ClInclude Include="Src\Application\Target\Enemy\Bird\Bird.h">
+      <Filter>Src\Application\Target\Enemy\Bird</Filter>
+    </ClInclude>
+    <ClInclude Include="Src\Application\Target\ReflectiveBlock\ReflectiveBlock.h">
+      <Filter>Src\Application\Target\ReflectiveBlock</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="src\Pch.cpp">
@@ -232,6 +265,18 @@
     </ClCompile>
     <ClCompile Include="Src\Application\Bullet\RifleBullet\RifleBullet.cpp">
       <Filter>Src\Application\Bullet\RifleBullet</Filter>
+    </ClCompile>
+    <ClCompile Include="Src\Application\HIt\Hit.cpp">
+      <Filter>Src\Application\Hit</Filter>
+    </ClCompile>
+    <ClCompile Include="Src\Application\Target\TargetBase\TargetBase.cpp">
+      <Filter>Src\Application\Target\TargetBase</Filter>
+    </ClCompile>
+    <ClCompile Include="Src\Application\Target\Enemy\Bird\Bird.cpp">
+      <Filter>Src\Application\Target\Enemy\Bird</Filter>
+    </ClCompile>
+    <ClCompile Include="Src\Application\Target\ReflectiveBlock\ReflectiveBlock.cpp">
+      <Filter>Src\Application\Target\ReflectiveBlock</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>

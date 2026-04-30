@@ -1,4 +1,4 @@
-#pragma once
+ï»¿#pragma once
 
 class Player;
 
@@ -9,25 +9,30 @@ public:
 	~BulletBase() {};
 
 
-	void Init();
+	virtual void Init();
 	virtual void Update() ;
 	void Draw();
 
 	void SetFlg(bool m_flg) { flg = m_flg; }
 	void SetPlayer(Player* pla) { m_player = pla; }
-	
+	Math::Vector2 GetPos() { return pos; }
+	Math::Vector2 GetMove() { return move; }
+	int GetRadius() { return radius; }					// å½“ãŸã‚Šåˆ¤å®šç”¨ã®åŠå¾„â€¦8
+	Math::Vector2 GetFuturePos() { return pos + move; }
+	void SetMove(Math::Vector2 m_move) { move = m_move; }
+	void SetPos(Math::Vector2 m_pos) { pos = m_pos; }
 protected:
 
 	Math::Matrix mat;
 	KdTexture tex;
 
-	Math::Vector2 pos;      // Œ»İ’n
-	Math::Vector2 targetPos;// –Ú“I’n“_ (goolPos)
-	Math::Vector2 velocity; // –ˆƒtƒŒ[ƒ€‚ÌˆÚ“®—Ê (move)
-	bool flg;               // ”­Ë’†ƒtƒ‰ƒO
+	Math::Vector2 pos;      // ç¾åœ¨åœ°
+	Math::Vector2 targetPos;// ç›®çš„åœ°ç‚¹ (goolPos)
+	Math::Vector2 move; // æ¯ãƒ•ãƒ¬ãƒ¼ãƒ ã®ç§»å‹•é‡ (move)
+	bool flg;               // ç™ºå°„ä¸­ãƒ•ãƒ©ã‚°
 
 	Player* m_player;
-
+	int radius = 8;			
 	int wait = 0;
 
 	

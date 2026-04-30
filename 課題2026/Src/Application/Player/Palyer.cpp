@@ -3,7 +3,7 @@
 
 void Player::Init()
 {
-	tex.Load("Texture/player.png");
+	tex.Load("Texture/scope.png");
 	pos = { 0,0 };
 	move = { 0,0 };
 
@@ -11,7 +11,6 @@ void Player::Init()
 
 void Player::Update()
 {
-	
 	GetMousePos2(&mouse);
 	pos.x = mouse.x;
 	pos.y = mouse.y;

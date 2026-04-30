@@ -2,6 +2,9 @@
 
 class Player;
 class RifleBullet;
+class Bird;
+class Hit;
+class ReflectiveBlock;
 
 class Scene
 {
@@ -17,6 +20,11 @@ private:
 
 	RifleBullet* m_rifleBullet=nullptr;
 
+	Bird* m_bird = nullptr;
+
+	Hit* m_hit = nullptr;
+
+	ReflectiveBlock* m_refBlock = nullptr;
 public:
 
 	// èâä˙ê›íË

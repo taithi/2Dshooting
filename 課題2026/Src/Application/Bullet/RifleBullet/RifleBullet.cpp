@@ -1,21 +1,28 @@
-#include"RifleBullet.h"
+ï»¿#include"RifleBullet.h"
 
 void RifleBullet::Init()
 {
 	tex.Load("Texture/bullet.png");
-
-	//pos = { 0,0 };
-	//move = { 0,0 };
-	//flg = false;
 }
 
 void RifleBullet::Update()
 {
 
-	// eƒNƒ‰ƒX‚ÌˆÚ“®ŒvZ‚ğŒÄ‚Ño‚·
-	BulletBase::Update();
+	if (GetAsyncKeyState('W') & 0x8000) move.y += 5;
+	if (GetAsyncKeyState('S') & 0x8000) move.y -= 5;
 
-	// Šm’è‚µ‚½ pos ‚ğg‚Á‚Äs—ñ‚ğXV
+	// è¦ªã‚¯ãƒ©ã‚¹ã®ç§»å‹•è¨ˆç®—ã‚’å‘¼ã³å‡ºã™
+	
+		BulletBase::Update();
+
+	if (!flg)
+	{
+		pos= { -610,-50 };
+	}
+
+	//pos += move;
+
+	// ç¢ºå®šã—ãŸ pos ã‚’ä½¿ã£ã¦è¡Œåˆ—ã‚’æ›´æ–°
 	mat = Math::Matrix::CreateTranslation(pos.x, pos.y, 0);
 }
 

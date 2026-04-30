@@ -11,7 +11,7 @@ private:
 	KdTexture tex;
 	Math::Matrix mat;
 	Scene* m_owner;
-	static const int movePow = 5;
+	static const int movePow = 1;
 
 	int scroll;
 
