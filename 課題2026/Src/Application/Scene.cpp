@@ -5,12 +5,14 @@
 #include"Hit/Hit.h"
 #include"Target/Enemy/Bird/Bird.h"
 #include"Target/ReflectiveBlock/ReflectiveBlock.h"
+#include"Bullet/ForecastLine/ForecastLine.h"
 void Scene::Draw2D()
 {
 	m_rifleBullet->Draw();
 	m_bird->Draw();
 	m_player->Draw();
 	m_refBlock->Draw();
+	m_forecastLine->Draw();
 }
 
 void Scene::Update()
@@ -22,6 +24,7 @@ void Scene::Update()
 	m_hit->CharaHit(m_rifleBullet, m_bird);
 	m_hit->BulletBlock(m_rifleBullet, m_refBlock);
 	m_refBlock->Update();
+	m_forecastLine->Update();
 }
 
 void Scene::Init()
@@ -42,6 +45,10 @@ void Scene::Init()
 
 	m_refBlock = new ReflectiveBlock();
 	m_refBlock->Init();
+
+	m_forecastLine = new ForecastLine();
+	m_forecastLine->Init();
+	m_forecastLine->SetPlayer(m_player);
 	//m_hit->SetTarget(m_bird, m_rifleBullet);
 
 	//player.set0wner(this);
@@ -51,30 +58,17 @@ void Scene::Init()
 void Scene::Release()
 {
 	// ‰æ‘œ‚Ì‰ğ•úˆ—
-	if(m_player)
-	{
-		delete m_player;
-	}
+	if(m_player)		delete m_player;
 
-	if (m_rifleBullet)
-	{
-		delete m_rifleBullet;
-	}
+	if (m_rifleBullet)	delete m_rifleBullet;
 
-	if(m_bird)
-	{
-		delete m_bird;
-	}
+	if(m_bird)			delete m_bird;
 
-	if (m_hit)
-	{
-		delete m_hit;
-	}
+	if (m_hit)			delete m_hit;
 
-	if (m_refBlock)
-	{
-		delete m_refBlock;
-	}
+	if (m_refBlock)		delete m_refBlock;
+
+	if (m_forecastLine) delete m_forecastLine;
 }
 
 void Scene::ImGuiUpdate()

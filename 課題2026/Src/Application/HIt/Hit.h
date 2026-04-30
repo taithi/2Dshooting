@@ -12,7 +12,7 @@ public:
 	~Hit() {};
 	void SetTarget(Bird* bird, RifleBullet* rifleBullet){ m_bird = bird; m_rifleBullet = rifleBullet; }
 	void CharaHit(RifleBullet* rifleBullet, Bird* bird);
-	void BulletBlock(RifleBullet* rifleBullet, ReflectiveBlock* refBlock);
+	void BulletBlock(RifleBullet* rifleBullet, ReflectiveBlock* refBlock); //弾と反射ブロックの当たり判定と反射処理
 
 private:
 	RifleBullet* m_rifleBullet = nullptr;

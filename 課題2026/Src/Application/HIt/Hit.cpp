@@ -26,6 +26,7 @@ void Hit::CharaHit(RifleBullet* rifleBullet, Bird* bird)
 	}
 }
 
+//弾と反射ブロックの当たり判定と反射処理
 void Hit::BulletBlock(RifleBullet* rifleBullet, ReflectiveBlock* refBlock)
 {
 	const float bulletRight = rifleBullet->GetPos().x + rifleBullet->GetRadius();

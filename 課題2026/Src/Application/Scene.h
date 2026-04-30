@@ -5,6 +5,7 @@ class RifleBullet;
 class Bird;
 class Hit;
 class ReflectiveBlock;
+class ForecastLine;
 
 class Scene
 {
@@ -25,6 +26,8 @@ private:
 	Hit* m_hit = nullptr;
 
 	ReflectiveBlock* m_refBlock = nullptr;
+
+ForecastLine* m_forecastLine = nullptr;
 public:
 
 	// ‰Šúİ’è

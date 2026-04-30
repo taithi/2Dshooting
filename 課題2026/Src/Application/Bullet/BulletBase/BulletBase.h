@@ -6,12 +6,12 @@ class BulletBase
 {
 public:
 	BulletBase() {};
-	~BulletBase() {};
+	~BulletBase() { Release(); };
 
 
 	virtual void Init();
 	virtual void Update() ;
-	void Draw();
+	virtual void Draw();
 
 	void SetFlg(bool m_flg) { flg = m_flg; }
 	void SetPlayer(Player* pla) { m_player = pla; }
@@ -22,6 +22,8 @@ public:
 	void SetMove(Math::Vector2 m_move) { move = m_move; }
 	void SetPos(Math::Vector2 m_pos) { pos = m_pos; }
 protected:
+
+	void Release();
 
 	Math::Matrix mat;
 	KdTexture tex;

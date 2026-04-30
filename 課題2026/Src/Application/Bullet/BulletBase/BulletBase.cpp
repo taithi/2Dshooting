@@ -81,3 +81,8 @@ void BulletBase::Draw()
 
 }
 
+void BulletBase::Release()
+{
+    tex.Release();
+}
+

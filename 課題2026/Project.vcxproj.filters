@@ -76,6 +76,9 @@
     <Filter Include="Src\Application\Target\ReflectiveBlock">
       <UniqueIdentifier>{d8f0f1c9-ff9c-438f-9608-eb61ef8900ea}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Src\Application\Bullet\ForecastLine">
+      <UniqueIdentifier>{79b54b7d-3cff-4581-89b6-b5ef4841dd39}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="src\Pch.h">
@@ -192,6 +195,9 @@
     <ClInclude Include="Src\Application\Target\ReflectiveBlock\ReflectiveBlock.h">
       <Filter>Src\Application\Target\ReflectiveBlock</Filter>
     </ClInclude>
+    <ClInclude Include="Src\Application\Bullet\ForecastLine\ForecastLine.h">
+      <Filter>Src\Application\Bullet\ForecastLine</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="src\Pch.cpp">
@@ -277,6 +283,9 @@
     </ClCompile>
     <ClCompile Include="Src\Application\Target\ReflectiveBlock\ReflectiveBlock.cpp">
       <Filter>Src\Application\Target\ReflectiveBlock</Filter>
+    </ClCompile>
+    <ClCompile Include="Src\Application\Bullet\ForecastLine\ForecastLine.cpp">
+      <Filter>Src\Application\Bullet\ForecastLine</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>

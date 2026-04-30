@@ -8,8 +8,8 @@ void RifleBullet::Init()
 void RifleBullet::Update()
 {
 
-	if (GetAsyncKeyState('W') & 0x8000) move.y += 5;
-	if (GetAsyncKeyState('S') & 0x8000) move.y -= 5;
+	
+
 
 	// 親クラスの移動計算を呼び出す
 	
