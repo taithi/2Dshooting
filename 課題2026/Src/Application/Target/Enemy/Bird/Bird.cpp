@@ -2,32 +2,19 @@
 
 void Bird::Init()
 {
-	pos = { 0,100 };
+
+	tex.Load("Texture/birdDummy2.png");
+	float y = rand() % 601 - 300;
+	
+	pos = { 100,y };
+	move = { 0,0};
 	flg = true;
 	timerCount = 0;
-
-	tex.Load("Texture/birdDummy.png");
+	
 }
 
 void Bird::Update()
 {
-	pos = { 0,100 };
-
-	/*if (flg == false)
-	{
-		int time = 5*60;
-
-		do
-		{
-			time--;
-		} while (time == 0);
-
-		if (time <= 0)
-		{
-			flg = true;
-			time = 5*60;
-		}
-	}*/
 
 	if (flg == false)
 	{
@@ -35,12 +22,19 @@ void Bird::Update()
 		timerCount++;
 
 		// 5秒経過したか判定 (60fps * 5秒 = 300フレーム)
-		if (timerCount >= 5 * 60)
+		if (timerCount >= 3 * 60)
 		{
+
+			float y = rand() % 601 - 300;
+
+			pos = { 100,y };
 			flg = true;
 			timerCount = 0; // タイマーをリセット
+
 		}
 	}
+
+	pos += move;
 
 	mat = Math::Matrix::CreateTranslation(pos.x, pos.y, 0);
 }
@@ -52,7 +46,7 @@ void Bird::Draw()
 
 		Math::Color color = { 1,1,1,1 };
 		SHADER.m_spriteShader.SetMatrix(mat);
-		SHADER.m_spriteShader.DrawTex(&tex, Math::Rectangle(0, 0, 64, 64), &color);
+		SHADER.m_spriteShader.DrawTex(&tex, Math::Rectangle(0, 0, 32, 32), &color);
 	}
 
 

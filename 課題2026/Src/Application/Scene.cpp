@@ -10,7 +10,13 @@
 void Scene::Draw2D()
 {
 	m_rifleBullet->Draw();
-	m_bird->Draw();
+	for (int i = 0; i < BIRD_NUM; i++)
+	{
+		if (m_bird[i] != nullptr)
+		{
+			m_bird[i]->Draw();
+		}
+	}
 	m_player->Draw();
 	m_refBlock->Draw();
 	m_forecastLine->Draw();
@@ -21,13 +27,19 @@ void Scene::Update()
 {
 	
 	m_rifleBullet->Update();
-	m_bird->Update();
-	m_player->Update();
-	m_hit->CharaHit(m_rifleBullet, m_bird);
+	for (int i = 0; i < BIRD_NUM; i++)
+	{
+		if (m_bird[i] != nullptr) // 安全のためのチェック
+		{
+			m_bird[i]->Update();
+			m_hit->CharaHit(m_rifleBullet, m_bird[i]);
+		}
+	}
 	m_hit->BulletBlock(m_rifleBullet, m_refBlock);
 	m_refBlock->Update();
 	m_forecastLine->Update();
 	m_playerMove->Update();
+	m_player->Update();
 }
 
 void Scene::Init()
@@ -50,8 +62,13 @@ void Scene::Init()
 	m_bulletBase->Init();
 	//m_bulletBase->SetPlayerMoove(m_playerMove);
 
-	m_bird = new Bird();
-	m_bird->Init();
+	srand((unsigned int)time(NULL));
+
+	for (int i = 0; i < BIRD_NUM; i++)
+	{
+		m_bird[i] = new Bird();
+		m_bird[i]->Init(); // ここで毎回 rand() が呼ばれ、それぞれ違うY座標(-300～300)になる
+	}
 
 	m_hit = new Hit();
 
@@ -77,7 +94,15 @@ void Scene::Release()
 
 	if (m_rifleBullet)	delete m_rifleBullet;
 
-	if(m_bird)			delete m_bird;
+	// 配列をループして鳥をすべて解放する
+	for (int i = 0; i < BIRD_NUM; i++)
+	{
+		if (m_bird[i] != nullptr)
+		{
+			delete m_bird[i];
+			m_bird[i] = nullptr; // deleteした後は必ずnullptrを入れる
+		}
+	}
 
 	if (m_hit)			delete m_hit;
 
@@ -105,10 +130,11 @@ void Scene::ImGuiUpdate()
 		ImGui::Text("player: x%f y%f", m_player->GetPos().x, m_player->GetPos().y);
 		ImGui::Text("bullet: x%f y%f", m_rifleBullet->GetPos().x, m_rifleBullet->GetPos().y);
 		ImGui::Text("bulletFlg: %d", m_rifleBullet->GetFlg());
-
-		ImGui::Text("bird: x%f y%f", m_bird->GetPos().x, m_bird->GetPos().y);
-		ImGui::Text("birdFlg: %d", m_bird->GetFlg());
-
+		for (int i = 0; i < BIRD_NUM; i++)
+		{
+			ImGui::Text("bird: x%f y%f", m_bird[i]->GetPos().x, m_bird[i]->GetPos().y);
+			ImGui::Text("birdFlg: %d", m_bird[i]->GetFlg());
+		}
 		ImGui::Text("RefBlock: x%f y%f", m_refBlock->GetPos().x, m_refBlock->GetPos().y);
 
 		ImGui::Text("PlayerMove: x%f y%f", m_playerMove->GetPos().x, m_playerMove->GetPos().y);

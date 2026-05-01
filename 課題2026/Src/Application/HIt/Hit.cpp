@@ -8,8 +8,8 @@ void Hit::CharaHit(RifleBullet* rifleBullet, Bird* bird)
 	m_rifleBullet = rifleBullet;
 	m_bird = bird;
 
-	const float x = m_bird->GetBirdPos().x - m_rifleBullet->GetPos().x;
-	const float y = m_bird->GetBirdPos().y - m_rifleBullet->GetPos().y;	
+	const float x = m_bird->GetPos().x - m_rifleBullet->GetPos().x;
+	const float y = m_bird->GetPos().y - m_rifleBullet->GetPos().y;	
 	const float z = sqrtf(x * x + y * y);
 
 
@@ -18,10 +18,13 @@ void Hit::CharaHit(RifleBullet* rifleBullet, Bird* bird)
 
 		if (m_bird->GetFlg() && m_rifleBullet->GetFlg())
 		{
+
+			Math::Vector2 pos= rifleBullet->GetPos();
 			//当たったときの処理
-			m_bird->SetFlg(false);
 			m_rifleBullet->SetFlg(false);
-			m_rifleBullet->SetPos({ -610, -50 });
+			m_rifleBullet->SetPos(pos);
+			m_bird->SetFlg(false);
+			
 		}
 	}
 }
