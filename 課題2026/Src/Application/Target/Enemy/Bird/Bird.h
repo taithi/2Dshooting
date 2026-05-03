@@ -8,19 +8,18 @@ class Bird :public TargetBase
 public:
 
 	Bird() {}
-	~Bird() {}
+	~Bird() { Release(); }
 
 	void Init()override;
 	void Update()override;
 	void Draw()override;
 	
-
-	Math::Vector2 GetBirdPos() { return pos; }
-	bool GetFlg() { return flg; }
-	
+	int GetNum() { return birdNum; }
 private:
+	void Release();
+	const int birdNum = 3;
 	int timerCount; // タイマー用のカウンタ
-
+	int radius = 16;
 //	Math::Vector2 pos;
 };
 

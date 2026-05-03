@@ -1,27 +1,30 @@
 #include "Hit.h"
 #include"../Bullet/RifleBullet/RifleBullet.h"
-#include"../Target/Enemy/Bird/Bird.h"
 #include"../Target/ReflectiveBlock/ReflectiveBlock.h"
+#include"../Target/TargetBase/TargetBase.h"
 
-void Hit::CharaHit(RifleBullet* rifleBullet, Bird* bird)
+void Hit::CharaHit(RifleBullet* rifleBullet, TargetBase* targetBase)
 {
 	m_rifleBullet = rifleBullet;
-	m_bird = bird;
+	m_targetBase = targetBase;
 
-	const float x = m_bird->GetBirdPos().x - m_rifleBullet->GetPos().x;
-	const float y = m_bird->GetBirdPos().y - m_rifleBullet->GetPos().y;	
+	const float x = m_targetBase->GetPos().x - m_rifleBullet->GetPos().x;
+	const float y = m_targetBase->GetPos().y - m_rifleBullet->GetPos().y;	
 	const float z = sqrtf(x * x + y * y);
 
 
-	if (z < m_bird->GetRadius() + m_rifleBullet->GetRadius())
+	if (z < m_targetBase->GetRadius() + m_rifleBullet->GetRadius())
 	{
 
-		if (m_bird->GetFlg() && m_rifleBullet->GetFlg())
+		if (m_targetBase->GetFlg() && m_rifleBullet->GetFlg())
 		{
+
+			Math::Vector2 pos= rifleBullet->GetPos();
 			//当たったときの処理
-			m_bird->SetFlg(false);
 			m_rifleBullet->SetFlg(false);
-			m_rifleBullet->SetPos({ -610, -50 });
+			m_rifleBullet->SetPos(pos);
+			m_targetBase->SetFlg(false);
+			
 		}
 	}
 }
@@ -59,6 +62,7 @@ void Hit::BulletBlock(RifleBullet* rifleBullet, ReflectiveBlock* refBlock)
 			(bulletLeft >= blockRight && nextLeft <= blockRight))
 		{
 			velocity.x *= -2.0f; // 横反射
+			refBlock->SetFlg(false);
 		}
 
 		// 上下の衝突チェック (前のフレームでは縦の範囲外だったか)
@@ -66,6 +70,7 @@ void Hit::BulletBlock(RifleBullet* rifleBullet, ReflectiveBlock* refBlock)
 			(bulletBottom >= blockTop && nextBottom <= blockTop))
 		{
 			velocity.y *= -2.0f; // 縦反射
+			refBlock->SetFlg(false);
 		}
 
 		// 速度を更新
@@ -73,3 +78,4 @@ void Hit::BulletBlock(RifleBullet* rifleBullet, ReflectiveBlock* refBlock)
 
 	}
 }
+

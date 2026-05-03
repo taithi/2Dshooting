@@ -13,7 +13,6 @@ void RifleBullet::Update()
 
 
 	// 親クラスの移動計算を呼び出す
-	
 		BulletBase::Update();
 
 	if (!flg)

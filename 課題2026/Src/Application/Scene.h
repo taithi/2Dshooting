@@ -1,4 +1,4 @@
-#pragma once
+ï»¿#pragma once
 
 class Player;
 class RifleBullet;
@@ -8,47 +8,51 @@ class ReflectiveBlock;
 class ForecastLine;
 class PlayerMove;
 class BulletBase;
+class Balloon;
 
 class Scene
 {
 private:
 
-	// ƒeƒNƒXƒ`ƒƒ EEE ‰æ‘œƒf[ƒ^
+	// ãƒ†ã‚¯ã‚¹ãƒãƒ£ ãƒ»ãƒ»ãƒ» ç”»åƒãƒ‡ãƒ¼ã‚¿
 	KdTexture m_playerTex;
 
-	// s—ñ EEE À•W‚È‚Ç‚Ìî•ñ
+	// è¡Œåˆ— ãƒ»ãƒ»ãƒ» åº§æ¨™ãªã©ã®æƒ…å ±
 	Math::Matrix matrix;
 
 	Player*m_player=nullptr;
 
 	RifleBullet* m_rifleBullet=nullptr;
 
-	Bird* m_bird = nullptr;
+	static const int BIRD_NUM = 3; // é³¥ã®æœ€å¤§æ•°
+	Bird* m_bird[BIRD_NUM] = { nullptr };
 
 	Hit* m_hit = nullptr;
-
-	ReflectiveBlock* m_refBlock = nullptr;
+	static const int REF_Num = 2;
+	ReflectiveBlock* m_refBlock[REF_Num] = { nullptr };
 
 	ForecastLine* m_forecastLine = nullptr;
 
 	PlayerMove* m_playerMove = nullptr;
 
 	BulletBase* m_bulletBase = nullptr;
-public:
 
-	// ‰Šúİ’è
+	Balloon* m_balloon = nullptr;
+public:
+	//static const int BIRD_NUM = 3; // é³¥ã®æœ€å¤§æ•°
+	// åˆæœŸè¨­å®š
 	void Init();
 
-	// ‰ğ•ú
+	// è§£æ”¾
 	void Release();
 
-	// XVˆ—
+	// æ›´æ–°å‡¦ç†
 	void Update();
 
-	// •`‰æˆ—
+	// æç”»å‡¦ç†
 	void Draw2D();
 
-	// GUIˆ—
+	// GUIå‡¦ç†
 	void ImGuiUpdate();
 
 private:

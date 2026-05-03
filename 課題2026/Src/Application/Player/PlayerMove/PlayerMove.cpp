@@ -3,7 +3,7 @@
 void PlayerMove::Init()
 {
 	tex.Load("Texture/Cannon.png");
-    pos = { };
+    pos = { 0,0};
 	move = { -610,-50 };
 }
 
@@ -14,6 +14,18 @@ void PlayerMove::Update()
 	if (GetAsyncKeyState('S') & 0x8000)	move.y -= movePow;
 
 	pos = move;
+
+	if (pos.y > 360 - 32 )
+	{
+		pos.y = 360 - 32;
+	}
+
+	if (pos.y < -360 + 32)
+	{
+		pos.y = -360 + 32;
+	}
+
+	
 	mat = Math::Matrix::CreateTranslation(pos.x, pos.y, 0);
 }
 
