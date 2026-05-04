@@ -8,6 +8,8 @@
 #include"Bullet/ForecastLine/ForecastLine.h"
 #include"Player/PlayerMove/PlayerMove.h"
 #include"Target/Balloon/Balloon.h"
+#include"Target/Bell/Bell.h"
+#include"Target/TargetBase/TargetBase.h"
 void Scene::Draw2D()
 {
 	
@@ -31,6 +33,8 @@ void Scene::Draw2D()
 	m_rifleBullet->Draw();
 
 	m_player->Draw();
+
+	m_bell->Draw();
 }
 
 void Scene::Update()
@@ -55,6 +59,8 @@ void Scene::Update()
 		m_hit->CharaHit(m_rifleBullet, m_balloon);
 		m_playerMove->Update();
 		m_player->Update();
+
+		m_bell->Update();
 	}
 }
 void Scene::Init()
@@ -101,6 +107,9 @@ void Scene::Init()
 	m_forecastLine->SetPlayer(m_player);
 	m_forecastLine->SetPlayerMove(m_playerMove);
 
+	m_bell = new Bell();
+	m_bell->Init();
+	m_bell->SetTagetBase(m_balloon);
 	
 	//m_hit->SetTarget(m_bird, m_rifleBullet);
 }
@@ -140,6 +149,8 @@ void Scene::Release()
 	if (m_playerMove)	delete m_playerMove;
 
 	if (m_bulletBase) delete m_bulletBase;
+
+	if (m_bell) delete m_bell;
 }
 
 void Scene::ImGuiUpdate()

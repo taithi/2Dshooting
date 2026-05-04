@@ -32,5 +32,6 @@ protected:
 	bool flg;
 	int moveSpeed;
 	int radius = 32;
+	int timeCount;
 };
 

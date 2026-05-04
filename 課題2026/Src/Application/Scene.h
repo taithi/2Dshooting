@@ -9,6 +9,8 @@ class ForecastLine;
 class PlayerMove;
 class BulletBase;
 class Balloon;
+class Bell;
+class TargetBase;
 
 class Scene
 {
@@ -38,6 +40,10 @@ private:
 	BulletBase* m_bulletBase = nullptr;
 
 	Balloon* m_balloon = nullptr;
+
+	Bell* m_bell = nullptr;
+
+	TargetBase* m_targetBase = nullptr;
 public:
 	//static const int BIRD_NUM = 3; // 鳥の最大数
 	// 初期設定

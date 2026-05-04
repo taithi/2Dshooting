@@ -2,7 +2,7 @@
 
 void Balloon::Init()
 {
-	tex.Load("Texture/Balloon.png");
+	tex.Load("Texture/balloon.png");
 
 	float y = rand() % 597 - 298;
 	pos = { 660,y };
@@ -26,6 +26,7 @@ void Balloon::Update()
 	else
 	{
 		pos = { 0,0 };
+		move = { 0,0 };
 	}
 	
 
