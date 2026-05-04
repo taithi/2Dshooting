@@ -167,9 +167,10 @@
     <ClInclude Include="Src\Application\Player\PlayerMove\PlayerMove.h" />
     <ClInclude Include="Src\Application\Scene.h" />
     <ClInclude Include="Src\Application\main.h" />
-    <ClInclude Include="Src\Application\Target\Balloon\Balloon.h" />
-    <ClInclude Include="Src\Application\Target\Bell\Bell.h" />
     <ClInclude Include="Src\Application\Target\Enemy\Bird\Bird.h" />
+    <ClInclude Include="Src\Application\Target\Item\Balloon\Balloon.h" />
+    <ClInclude Include="Src\Application\Target\Item\Bell\Bell.h" />
+    <ClInclude Include="Src\Application\Target\Item\Timer\Timer.h" />
     <ClInclude Include="Src\Application\Target\ReflectiveBlock\ReflectiveBlock.h" />
     <ClInclude Include="Src\Application\Target\TargetBase\TargetBase.h" />
     <ClInclude Include="Src\System\Audio\KdAudio.h" />
@@ -203,9 +204,10 @@
     <ClCompile Include="Src\Application\Player\PlayerMove\PlayerMove.cpp" />
     <ClCompile Include="Src\Application\Scene.cpp" />
     <ClCompile Include="Src\Application\main.cpp" />
-    <ClCompile Include="Src\Application\Target\Balloon\Balloon.cpp" />
-    <ClCompile Include="Src\Application\Target\Bell\Bell.cpp" />
     <ClCompile Include="Src\Application\Target\Enemy\Bird\Bird.cpp" />
+    <ClCompile Include="Src\Application\Target\Item\Balloon\Balloon.cpp" />
+    <ClCompile Include="Src\Application\Target\Item\Bell\Bell.cpp" />
+    <ClCompile Include="Src\Application\Target\Item\Timer\Timer.cpp" />
     <ClCompile Include="Src\Application\Target\ReflectiveBlock\ReflectiveBlock.cpp" />
     <ClCompile Include="Src\Application\Target\TargetBase\TargetBase.cpp" />
     <ClCompile Include="Src\System\Audio\KdAudio.cpp" />

@@ -1,9 +1,20 @@
 #pragma once
 
+class Balloon;
+
 class TargetBase
 {
 
 public:
+
+	enum item {
+
+		bell,
+		timer,
+		//balloon,
+	};
+
+
 	TargetBase() {}
 	~TargetBase() {}
 
@@ -12,6 +23,7 @@ public:
 	virtual void Draw() {}
 	void SetFlg(bool m_flg) { flg = m_flg; }
 
+	void SetTagetBase(Balloon* bell) { m_bulloon = bell; }
 	Math::Vector2 GetPos() { return pos; }
 	void SetPos(Math::Vector2 s_pos) { pos = s_pos; }
 	int GetRadius() { return radius; }			// 当たり判定用の半径…32
@@ -24,10 +36,14 @@ protected:
 
 	Math::Vector2 pos;
 	Math::Vector2 move;
+	Balloon* m_bulloon = nullptr;
 	float posX;
 	float posY;
 	float moveX;
 	float moveY;
+	float gravity;
+	float jumpPow;
+	float objectFlg;
 
 	bool flg;
 	int moveSpeed;

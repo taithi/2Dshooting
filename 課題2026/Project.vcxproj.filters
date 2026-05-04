@@ -88,6 +88,9 @@
     <Filter Include="Src\Application\Target\Item\Bell">
       <UniqueIdentifier>{af8dfd57-40fe-42d3-9cd6-66f011befe73}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Src\Application\Target\Item\Timer">
+      <UniqueIdentifier>{eeffa17b-3290-4e35-a4ca-4ea5520d066a}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="src\Pch.h">
@@ -210,10 +213,13 @@
     <ClInclude Include="Src\Application\Player\PlayerMove\PlayerMove.h">
       <Filter>Src\Application\Player\PlayerMove</Filter>
     </ClInclude>
-    <ClInclude Include="Src\Application\Target\Balloon\Balloon.h">
+    <ClInclude Include="Src\Application\Target\Item\Timer\Timer.h">
+      <Filter>Src\Application\Target\Item\Timer</Filter>
+    </ClInclude>
+    <ClInclude Include="Src\Application\Target\Item\Balloon\Balloon.h">
       <Filter>Src\Application\Target\Item\Balloon</Filter>
     </ClInclude>
-    <ClInclude Include="Src\Application\Target\Bell\Bell.h">
+    <ClInclude Include="Src\Application\Target\Item\Bell\Bell.h">
       <Filter>Src\Application\Target\Item\Bell</Filter>
     </ClInclude>
   </ItemGroup>
@@ -308,10 +314,13 @@
     <ClCompile Include="Src\Application\Player\PlayerMove\PlayerMove.cpp">
       <Filter>Src\Application\Player\PlayerMove</Filter>
     </ClCompile>
-    <ClCompile Include="Src\Application\Target\Balloon\Balloon.cpp">
+    <ClCompile Include="Src\Application\Target\Item\Timer\Timer.cpp">
+      <Filter>Src\Application\Target\Item\Timer</Filter>
+    </ClCompile>
+    <ClCompile Include="Src\Application\Target\Item\Balloon\Balloon.cpp">
       <Filter>Src\Application\Target\Item\Balloon</Filter>
     </ClCompile>
-    <ClCompile Include="Src\Application\Target\Bell\Bell.cpp">
+    <ClCompile Include="Src\Application\Target\Item\Bell\Bell.cpp">
       <Filter>Src\Application\Target\Item\Bell</Filter>
     </ClCompile>
   </ItemGroup>

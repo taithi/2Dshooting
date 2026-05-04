@@ -12,22 +12,32 @@ void Bell::Init()
 	timeCount = 0.0f;
 	objectFlg = 1;
 	flg = false;
+	item::bell;
 }
 
 void Bell::Update()
 {
 	{
-		if (m_bulloon->GetFlg()==false)
+		if (flg == false && m_bulloon->GetFlg() == false && m_bulloon->GetDroped() == false && m_bulloon->GetDropItem() == item::bell)
 		{
-			
-			move = m_bulloon->GetPos();
-			flg = true;
 
+			pos = m_bulloon->GetPos();
+			move = { 0,0 }; 
+			flg = true;    
+			timeCount = 0;
+			objectFlg = 1.0f;
+
+			m_bulloon->SetDroped(true);
+		}
+	}
+
+	{
+		if(flg)
+		{
 			timeCount++;
-			if (timeCount > 5*60)
+			if (timeCount > 5 * 60)
 			{
 				move.y -= gravity;
-				//pos.x = 0;
 			}
 			else
 			{
@@ -43,13 +53,12 @@ void Bell::Update()
 				}
 			}
 
-		}
 
-		
+			if (pos.y < -360)
+			{
+				flg = false;
 
-		if (pos.y < -360 )
-		{
-			flg = false;
+			}
 		}
 	}
 

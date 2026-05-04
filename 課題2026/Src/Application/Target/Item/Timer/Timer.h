@@ -1,20 +1,15 @@
 #pragma once
+#include"../../TargetBase/TargetBase.h"
 
-#include"../TargetBase/TargetBase.h"
-
-class Balloon : public TargetBase
+class Timer :public TargetBase
 {
 public:
-	Balloon() {}
-	~Balloon() { Release(); }
-
+	Timer() {}
+	~Timer() {}
 	void Init() override;
 	void Update() override;
 	void Draw() override;
 
 private:
 	void Release();
-
-	
-
 };

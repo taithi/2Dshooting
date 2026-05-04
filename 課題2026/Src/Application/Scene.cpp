@@ -7,9 +7,10 @@
 #include"Target/ReflectiveBlock/ReflectiveBlock.h"
 #include"Bullet/ForecastLine/ForecastLine.h"
 #include"Player/PlayerMove/PlayerMove.h"
-#include"Target/Balloon/Balloon.h"
-#include"Target/Bell/Bell.h"
+#include"Target/Item/Balloon/Balloon.h"
+#include"Target/Item/Bell/Bell.h"
 #include"Target/TargetBase/TargetBase.h"
+#include"Target/Item/Timer/Timer.h"
 void Scene::Draw2D()
 {
 	
@@ -35,6 +36,8 @@ void Scene::Draw2D()
 	m_player->Draw();
 
 	m_bell->Draw();
+
+	m_timer->Draw();
 }
 
 void Scene::Update()
@@ -48,7 +51,7 @@ void Scene::Update()
 			m_bird[i]->Update();
 			m_hit->CharaHit(m_rifleBullet, m_bird[i]);
 		}
-
+	}
 		for (int i = 0; i < REF_Num; i++)
 		{
 			m_hit->BulletBlock(m_rifleBullet, m_refBlock[i]);
@@ -61,8 +64,10 @@ void Scene::Update()
 		m_player->Update();
 
 		m_bell->Update();
-	}
+
+		m_timer->Update();
 }
+
 void Scene::Init()
 {
 
@@ -111,6 +116,10 @@ void Scene::Init()
 	m_bell->Init();
 	m_bell->SetTagetBase(m_balloon);
 	
+	m_timer = new Timer();
+	m_timer->Init();
+	m_timer->SetTagetBase(m_balloon);
+
 	//m_hit->SetTarget(m_bird, m_rifleBullet);
 }
 
@@ -151,6 +160,8 @@ void Scene::Release()
 	if (m_bulletBase) delete m_bulletBase;
 
 	if (m_bell) delete m_bell;
+
+	if (m_timer) delete m_timer;
 }
 
 void Scene::ImGuiUpdate()
