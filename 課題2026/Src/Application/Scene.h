@@ -12,6 +12,7 @@ class Balloon;
 class Bell;
 class TargetBase;
 class Timer;
+class RefBlockMini;
 
 class Scene
 {
@@ -47,6 +48,8 @@ private:
 	TargetBase* m_targetBase = nullptr;
 
 	Timer* m_timer = nullptr;
+
+	RefBlockMini* m_refBlockMini = nullptr;
 public:
 	//static const int BIRD_NUM = 3; // 鳥の最大数
 	// 初期設定

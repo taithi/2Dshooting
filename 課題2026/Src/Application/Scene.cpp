@@ -11,6 +11,7 @@
 #include"Target/Item/Bell/Bell.h"
 #include"Target/TargetBase/TargetBase.h"
 #include"Target/Item/Timer/Timer.h"
+#include"Target/Item/ReflectiveBlockMini/ReflectiveBlockMini.h"
 void Scene::Draw2D()
 {
 	
@@ -31,13 +32,15 @@ void Scene::Draw2D()
 
 	m_balloon->Draw();
 
-	m_rifleBullet->Draw();
+	m_timer->Draw();
 
-	m_player->Draw();
+	m_refBlockMini->Draw();
 
 	m_bell->Draw();
 
-	m_timer->Draw();
+	m_rifleBullet->Draw();
+
+	m_player->Draw();
 }
 
 void Scene::Update()
@@ -66,6 +69,8 @@ void Scene::Update()
 		m_bell->Update();
 
 		m_timer->Update();
+
+		m_refBlockMini->Update();
 }
 
 void Scene::Init()
@@ -120,6 +125,9 @@ void Scene::Init()
 	m_timer->Init();
 	m_timer->SetTagetBase(m_balloon);
 
+	m_refBlockMini = new RefBlockMini();
+	m_refBlockMini->Init();
+	m_refBlockMini->SetTagetBase(m_balloon);
 	//m_hit->SetTarget(m_bird, m_rifleBullet);
 }
 
@@ -162,6 +170,8 @@ void Scene::Release()
 	if (m_bell) delete m_bell;
 
 	if (m_timer) delete m_timer;
+
+	if (m_refBlockMini) delete m_refBlockMini;
 }
 
 void Scene::ImGuiUpdate()

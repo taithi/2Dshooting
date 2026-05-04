@@ -11,7 +11,7 @@ public:
 
 		bell,
 		timer,
-		//balloon,
+		refBlockMini,
 	};
 
 

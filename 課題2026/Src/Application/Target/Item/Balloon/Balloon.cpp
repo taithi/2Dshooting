@@ -13,7 +13,7 @@ void Balloon::Init()
 
 	droped = false;
 	//item::balloon;
-	m_dropItem = (TargetBase::item)(rand() % 2);
+	m_dropItem = (TargetBase::item)(rand() % 3);
 
 	//タイマー初期化
 	m_respawnCount = 0;
@@ -36,7 +36,7 @@ void Balloon::Update()
 			pos.y = rand() % 597 - 298;
 
 			//再度出現するときにも、中身を再抽選する
-			m_dropItem = (TargetBase::item)(rand() % 2);
+			m_dropItem = (TargetBase::item)(rand() % 3);
 			droped = false;
 		}
 	}
@@ -55,7 +55,7 @@ void Balloon::Update()
 			move.x = -0.5;      // 移動速度を戻す
 			flg = true;         // 出現フラグON
 			droped = false;     // ドロップ状態リセット
-			m_dropItem = (TargetBase::item)(rand() % 2); // 中身再抽選
+			m_dropItem = (TargetBase::item)(rand() % 3); // 中身再抽選
 
 			m_respawnCount = 0; // タイマーリセット
 		}

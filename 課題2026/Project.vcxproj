@@ -170,6 +170,7 @@
     <ClInclude Include="Src\Application\Target\Enemy\Bird\Bird.h" />
     <ClInclude Include="Src\Application\Target\Item\Balloon\Balloon.h" />
     <ClInclude Include="Src\Application\Target\Item\Bell\Bell.h" />
+    <ClInclude Include="Src\Application\Target\Item\ReflectiveBlockMini\ReflectiveBlockMini.h" />
     <ClInclude Include="Src\Application\Target\Item\Timer\Timer.h" />
     <ClInclude Include="Src\Application\Target\ReflectiveBlock\ReflectiveBlock.h" />
     <ClInclude Include="Src\Application\Target\TargetBase\TargetBase.h" />
@@ -207,6 +208,7 @@
     <ClCompile Include="Src\Application\Target\Enemy\Bird\Bird.cpp" />
     <ClCompile Include="Src\Application\Target\Item\Balloon\Balloon.cpp" />
     <ClCompile Include="Src\Application\Target\Item\Bell\Bell.cpp" />
+    <ClCompile Include="Src\Application\Target\Item\ReflectiveBlockMini\ReflectiveBlockMini.cpp" />
     <ClCompile Include="Src\Application\Target\Item\Timer\Timer.cpp" />
     <ClCompile Include="Src\Application\Target\ReflectiveBlock\ReflectiveBlock.cpp" />
     <ClCompile Include="Src\Application\Target\TargetBase\TargetBase.cpp" />

@@ -91,6 +91,9 @@
     <Filter Include="Src\Application\Target\Item\Timer">
       <UniqueIdentifier>{eeffa17b-3290-4e35-a4ca-4ea5520d066a}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Src\Application\Target\Item\ReflectiveBlockMini">
+      <UniqueIdentifier>{e5773d56-5e48-433c-a583-5fea7b1f69d8}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="src\Pch.h">
@@ -222,6 +225,9 @@
     <ClInclude Include="Src\Application\Target\Item\Bell\Bell.h">
       <Filter>Src\Application\Target\Item\Bell</Filter>
     </ClInclude>
+    <ClInclude Include="Src\Application\Target\Item\ReflectiveBlockMini\ReflectiveBlockMini.h">
+      <Filter>Src\Application\Target\Item\ReflectiveBlockMini</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="src\Pch.cpp">
@@ -322,6 +328,9 @@
     </ClCompile>
     <ClCompile Include="Src\Application\Target\Item\Bell\Bell.cpp">
       <Filter>Src\Application\Target\Item\Bell</Filter>
+    </ClCompile>
+    <ClCompile Include="Src\Application\Target\Item\ReflectiveBlockMini\ReflectiveBlockMini.cpp">
+      <Filter>Src\Application\Target\Item\ReflectiveBlockMini</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>

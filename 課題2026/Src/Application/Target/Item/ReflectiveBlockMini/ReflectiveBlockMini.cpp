@@ -1,11 +1,10 @@
-#include "Timer.h"
-
+#include "ReflectiveBlockMini.h"
 #include"../Balloon/Balloon.h"
 
-void Timer::Init()
-{
 
-	tex.Load("Texture/timer2.png");
+void RefBlockMini::Init()
+{
+	tex.Load("Texture/RefBlockMini.png");
 	pos = { 0,0 };
 	move = { 0,0 };
 	gravity = 5.0f;
@@ -13,13 +12,15 @@ void Timer::Init()
 	timeCount = 0.0f;
 	objectFlg = 1;
 	flg = false;
-	item::timer;
+	item::refBlockMini;
+
 }
 
-void Timer::Update()
+void RefBlockMini::Update()
 {
+
 	{
-		if (flg == false && m_bulloon->GetFlg() == false && m_bulloon->GetDroped() == false && m_bulloon->GetDropItem() == item::timer)
+		if (flg == false && m_bulloon->GetFlg() == false && m_bulloon->GetDroped() == false && m_bulloon->GetDropItem() == item::refBlockMini)
 		{
 
 			pos = m_bulloon->GetPos();
@@ -69,9 +70,12 @@ void Timer::Update()
 	pos += move;
 
 	mat = Math::Matrix::CreateTranslation(pos.x, pos.y, 1);
+
 }
-void Timer::Draw()
+
+void RefBlockMini::Draw()
 {
+
 	if (flg)
 	{
 		Math::Color color = { 1,1,1,objectFlg };
@@ -81,7 +85,7 @@ void Timer::Draw()
 
 }
 
-void Timer::Release()
+void RefBlockMini::Release()
 {
 
 	tex.Release();
