@@ -13,6 +13,7 @@ void Bird::Init()
 	pos = { x,y };
 	move = { 0,0};
 	flg = true;
+	radius = 16;
 	timerCount = 0;
 	
 }
@@ -29,6 +30,7 @@ void Bird::Update()
 
 	if (flg == false)
 	{
+		//pos = { -9999.0f, -9999.0f };
 		// 毎フレームカウントを増やす
 		timerCount++;
 

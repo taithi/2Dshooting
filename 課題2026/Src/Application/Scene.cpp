@@ -12,15 +12,16 @@
 #include"Target/TargetBase/TargetBase.h"
 #include"Target/Item/Timer/Timer.h"
 #include"Target/Item/ReflectiveBlockMini/ReflectiveBlockMini.h"
+#include"Target/Enemy/Ufo/Ufo.h"
+#include"UI/uiBase/uiBase.h"
+#include"UI/HUD/Hud.h"
+
 void Scene::Draw2D()
 {
 	
 	for (int i = 0; i < BIRD_NUM; i++)
 	{
-		if (m_bird[i] != nullptr)
-		{
 			m_bird[i]->Draw();
-		}
 	}
 	
 	for (int i = 0; i< REF_Num; i++)
@@ -38,6 +39,11 @@ void Scene::Draw2D()
 
 	m_bell->Draw();
 
+	m_ufo->Draw();
+
+	m_hud->Draw();
+	//m_uiBase->Draw();
+
 	m_rifleBullet->Draw();
 
 	m_player->Draw();
@@ -49,11 +55,8 @@ void Scene::Update()
 	m_rifleBullet->Update();
 	for (int i = 0; i < BIRD_NUM; i++)
 	{
-		if (m_bird[i] != nullptr) // 安全のためのチェック
-		{
 			m_bird[i]->Update();
 			m_hit->CharaHit(m_rifleBullet, m_bird[i]);
-		}
 	}
 		for (int i = 0; i < REF_Num; i++)
 		{
@@ -71,11 +74,20 @@ void Scene::Update()
 		m_timer->Update();
 
 		m_refBlockMini->Update();
+
+		m_ufo->Update();
+		m_hit->CharaHit(m_rifleBullet, m_ufo);
+
+		m_hud->Update();
+
+		//m_uiBase->Update();
+
 }
 
 void Scene::Init()
 {
-
+	//アプリ起動時に1回だけ現在の時間を使って乱数を設定する
+	srand((unsigned int)time(nullptr));
 	m_hit = new Hit();
 
 
@@ -97,7 +109,7 @@ void Scene::Init()
 	m_player = new Player();
 	m_player->Init();
 
-	m_playerMove = new PlayerMove();    // 先に作成
+	m_playerMove = new PlayerMove();
 	m_playerMove->Init();
 
 	m_balloon = new Balloon();
@@ -106,8 +118,7 @@ void Scene::Init()
 	m_rifleBullet = new RifleBullet();
 	m_rifleBullet->Init();
 	m_rifleBullet->SetPlayer(m_player);
-	m_rifleBullet->SetPlayerMove(m_playerMove); // m_bulletBase ではなく実体に設定
-
+	m_rifleBullet->SetPlayerMove(m_playerMove); 
 	m_bulletBase = new BulletBase();
 	m_bulletBase->Init();
 	//m_bulletBase->SetPlayerMoove(m_playerMove);
@@ -128,6 +139,16 @@ void Scene::Init()
 	m_refBlockMini = new RefBlockMini();
 	m_refBlockMini->Init();
 	m_refBlockMini->SetTagetBase(m_balloon);
+
+	m_ufo = new Ufo();
+	m_ufo->Init();
+	m_ufo->SetBullet(m_rifleBullet);
+
+	m_hud = new Hud();
+	m_hud->Init();
+
+	/*m_uiBase = new UiBase();
+	m_uiBase->Init();*/
 	//m_hit->SetTarget(m_bird, m_rifleBullet);
 }
 
@@ -172,6 +193,12 @@ void Scene::Release()
 	if (m_timer) delete m_timer;
 
 	if (m_refBlockMini) delete m_refBlockMini;
+
+	if (m_ufo) delete m_ufo;
+
+	if (m_hud) delete m_hud;
+
+	//if (m_uiBase) delete m_uiBase;
 }
 
 void Scene::ImGuiUpdate()
@@ -186,17 +213,17 @@ void Scene::ImGuiUpdate()
 	{
 		ImGui::Text("FPS : %d", APP.m_fps);
 		ImGui::Text("player: x%f y%f", m_player->GetPos().x, m_player->GetPos().y);
-		ImGui::Text("player: x%f y%f", m_player->GetPos().x, m_player->GetPos().y);
 		ImGui::Text("bullet: x%f y%f", m_rifleBullet->GetPos().x, m_rifleBullet->GetPos().y);
 		ImGui::Text("bulletFlg: %d", m_rifleBullet->GetFlg());
 		for (int i = 0; i < BIRD_NUM; i++)
 		{
 			ImGui::Text("bird: x%f y%f", m_bird[i]->GetPos().x, m_bird[i]->GetPos().y);
 			ImGui::Text("birdFlg: %d", m_bird[i]->GetFlg());
+			ImGui::Text("BirdTimer%d: %d", i,m_bird[i]->GetTimerCount());
 		}
 		for (int i = 0; i < REF_Num; i++)
 		{
-			ImGui::Text("BalloonFlg: %d", m_refBlock[i]->GetFlg());
+			ImGui::Text("RefBlockFlg: %d", m_refBlock[i]->GetFlg());
 			ImGui::Text("RefBlock: x%f y%f", m_refBlock[i]->GetPos().x, m_refBlock[i]->GetPos().y);
 		}
 

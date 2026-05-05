@@ -94,6 +94,18 @@
     <Filter Include="Src\Application\Target\Item\ReflectiveBlockMini">
       <UniqueIdentifier>{e5773d56-5e48-433c-a583-5fea7b1f69d8}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Src\Application\Target\Enemy\Ufo">
+      <UniqueIdentifier>{db5bb764-46d8-4571-aac9-78931129d6f6}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Src\Application\UI">
+      <UniqueIdentifier>{1acd3daa-51d1-4cd8-8e5c-eecea1bc8f56}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Src\Application\UI\HUD">
+      <UniqueIdentifier>{9da78552-251c-4a58-b19f-3ef59f4a5b80}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Src\Application\UI\uiBase">
+      <UniqueIdentifier>{50474e64-ee24-4a64-a8ed-84ab2ab54951}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="src\Pch.h">
@@ -228,6 +240,15 @@
     <ClInclude Include="Src\Application\Target\Item\ReflectiveBlockMini\ReflectiveBlockMini.h">
       <Filter>Src\Application\Target\Item\ReflectiveBlockMini</Filter>
     </ClInclude>
+    <ClInclude Include="Src\Application\Target\Enemy\Ufo\Ufo.h">
+      <Filter>Src\Application\Target\Enemy\Ufo</Filter>
+    </ClInclude>
+    <ClInclude Include="Src\Application\UI\HUD\Hud.h">
+      <Filter>Src\Application\UI\HUD</Filter>
+    </ClInclude>
+    <ClInclude Include="Src\Application\UI\uiBase\uiBase.h">
+      <Filter>Src\Application\UI\uiBase</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="src\Pch.cpp">
@@ -332,6 +353,13 @@
     <ClCompile Include="Src\Application\Target\Item\ReflectiveBlockMini\ReflectiveBlockMini.cpp">
       <Filter>Src\Application\Target\Item\ReflectiveBlockMini</Filter>
     </ClCompile>
+    <ClCompile Include="Src\Application\Target\Enemy\Ufo\Ufo.cpp">
+      <Filter>Src\Application\Target\Enemy\Ufo</Filter>
+    </ClCompile>
+    <ClCompile Include="Src\Application\UI\HUD\Hud.cpp">
+      <Filter>Src\Application\UI\HUD</Filter>
+    </ClCompile>
+    <ClCompile Include="Src\Application\UI\uiBase\uiBase.cpp" />
   </ItemGroup>
   <ItemGroup>
     <Text Include="説明.txt" />

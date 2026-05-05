@@ -13,6 +13,9 @@ class Bell;
 class TargetBase;
 class Timer;
 class RefBlockMini;
+class Ufo;
+class uiBase;
+class Hud;
 
 class Scene
 {
@@ -50,6 +53,13 @@ private:
 	Timer* m_timer = nullptr;
 
 	RefBlockMini* m_refBlockMini = nullptr;
+
+	Ufo* m_ufo = nullptr;
+
+	//UiBase* m_uiBase = nullptr;
+
+	Hud* m_hud = nullptr;
+
 public:
 	//static const int BIRD_NUM = 3; // 鳥の最大数
 	// 初期設定

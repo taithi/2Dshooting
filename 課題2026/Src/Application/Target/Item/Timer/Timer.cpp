@@ -13,7 +13,6 @@ void Timer::Init()
 	timeCount = 0.0f;
 	objectFlg = 1;
 	flg = false;
-	item::timer;
 }
 
 void Timer::Update()

@@ -8,6 +8,9 @@ void Hit::CharaHit(RifleBullet* rifleBullet, TargetBase* targetBase)
 	m_rifleBullet = rifleBullet;
 	m_targetBase = targetBase;
 
+	if (m_rifleBullet->GetFlg() == false) return;
+	if (m_targetBase->GetFlg() == false) return;
+
 	const float x = m_targetBase->GetPos().x - m_rifleBullet->GetPos().x;
 	const float y = m_targetBase->GetPos().y - m_rifleBullet->GetPos().y;	
 	const float z = sqrtf(x * x + y * y);
@@ -32,6 +35,13 @@ void Hit::CharaHit(RifleBullet* rifleBullet, TargetBase* targetBase)
 //弾と反射ブロックの当たり判定と反射処理
 void Hit::BulletBlock(RifleBullet* rifleBullet, ReflectiveBlock* refBlock)
 {
+
+	// ブロックがすでに消えているfalseなら当たり判定の計算をせずに終わる
+	if (refBlock->GetFlg() == false) return; // この下にある計算をぜんぶ飛ばして関数から抜け出す
+
+	//弾が消えている時も判定しないようにしておく
+	if (rifleBullet->GetFlg() == false) return;
+
 	const float bulletRight = rifleBullet->GetPos().x + rifleBullet->GetRadius();
 	const float bulletLeft = rifleBullet->GetPos().x - rifleBullet->GetRadius();
 	const float bulletTop = rifleBullet->GetPos().y + rifleBullet->GetRadius();
