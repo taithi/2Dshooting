@@ -175,7 +175,9 @@
     <ClInclude Include="Src\Application\Target\Item\Timer\Timer.h" />
     <ClInclude Include="Src\Application\Target\ReflectiveBlock\ReflectiveBlock.h" />
     <ClInclude Include="Src\Application\Target\TargetBase\TargetBase.h" />
+    <ClInclude Include="Src\Application\UI\CountDown\CountDown.h" />
     <ClInclude Include="Src\Application\UI\HUD\Hud.h" />
+    <ClInclude Include="Src\Application\UI\Score\Score.h" />
     <ClInclude Include="Src\Application\UI\uiBase\uiBase.h" />
     <ClInclude Include="Src\System\Audio\KdAudio.h" />
     <ClInclude Include="src\System\Direct3D\KdDirect3D.h" />
@@ -216,7 +218,9 @@
     <ClCompile Include="Src\Application\Target\Item\Timer\Timer.cpp" />
     <ClCompile Include="Src\Application\Target\ReflectiveBlock\ReflectiveBlock.cpp" />
     <ClCompile Include="Src\Application\Target\TargetBase\TargetBase.cpp" />
+    <ClCompile Include="Src\Application\UI\CountDown\CountDown.cpp" />
     <ClCompile Include="Src\Application\UI\HUD\Hud.cpp" />
+    <ClCompile Include="Src\Application\UI\Score\Score.cpp" />
     <ClCompile Include="Src\Application\UI\uiBase\uiBase.cpp" />
     <ClCompile Include="Src\System\Audio\KdAudio.cpp" />
     <ClCompile Include="src\System\Direct3D\KdDirect3D.cpp" />

@@ -16,6 +16,8 @@ class RefBlockMini;
 class Ufo;
 class uiBase;
 class Hud;
+class Score;
+class CountDown;
 
 class Scene
 {
@@ -60,8 +62,11 @@ private:
 
 	Hud* m_hud = nullptr;
 
+	Score* m_score = nullptr;
+
+	CountDown* m_countDown = nullptr;
+
 public:
-	//static const int BIRD_NUM = 3; // 鳥の最大数
 	// 初期設定
 	void Init();
 

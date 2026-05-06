@@ -2,8 +2,8 @@
 
 void Hud::Init()
 {
-	tex.Load("Texture/gameUi3.png");
-	pos = { 290,309 };
+	tex.Load("Texture/gameUi4.png");
+	pos = { 0,309 };
 	aliveFlg = true;
 }
 
@@ -25,7 +25,7 @@ void Hud::Draw()
 		Math::Color color = { 1,1,1,1 };
 
 		SHADER.m_spriteShader.SetMatrix(mat);
-		SHADER.m_spriteShader.DrawTex(&tex, Math::Rectangle(0, 0, 700, 100), &color);
+		SHADER.m_spriteShader.DrawTex(&tex, Math::Rectangle(0, 0, 1277, 100), &color);
 	}
 
 }

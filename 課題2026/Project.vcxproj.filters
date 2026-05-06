@@ -106,6 +106,12 @@
     <Filter Include="Src\Application\UI\uiBase">
       <UniqueIdentifier>{50474e64-ee24-4a64-a8ed-84ab2ab54951}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Src\Application\UI\Score">
+      <UniqueIdentifier>{a9b005e8-480d-4266-aca3-0bbedf0ebcb3}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Src\Application\UI\CountDown">
+      <UniqueIdentifier>{3f11daa6-1b90-4899-86dd-dac23dcb9431}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="src\Pch.h">
@@ -249,6 +255,12 @@
     <ClInclude Include="Src\Application\UI\uiBase\uiBase.h">
       <Filter>Src\Application\UI\uiBase</Filter>
     </ClInclude>
+    <ClInclude Include="Src\Application\UI\Score\Score.h">
+      <Filter>Src\Application\UI\Score</Filter>
+    </ClInclude>
+    <ClInclude Include="Src\Application\UI\CountDown\CountDown.h">
+      <Filter>Src\Application\UI\CountDown</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="src\Pch.cpp">
@@ -360,6 +372,12 @@
       <Filter>Src\Application\UI\HUD</Filter>
     </ClCompile>
     <ClCompile Include="Src\Application\UI\uiBase\uiBase.cpp" />
+    <ClCompile Include="Src\Application\UI\Score\Score.cpp">
+      <Filter>Src\Application\UI\Score</Filter>
+    </ClCompile>
+    <ClCompile Include="Src\Application\UI\CountDown\CountDown.cpp">
+      <Filter>Src\Application\UI\CountDown</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <Text Include="説明.txt" />

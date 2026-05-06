@@ -15,6 +15,8 @@
 #include"Target/Enemy/Ufo/Ufo.h"
 #include"UI/uiBase/uiBase.h"
 #include"UI/HUD/Hud.h"
+#include"UI/Score/Score.h"
+#include"UI/CountDown/CountDown.h"
 
 void Scene::Draw2D()
 {
@@ -42,7 +44,9 @@ void Scene::Draw2D()
 	m_ufo->Draw();
 
 	m_hud->Draw();
-	//m_uiBase->Draw();
+
+	m_score->Draw();
+	m_countDown->Draw();
 
 	m_rifleBullet->Draw();
 
@@ -80,7 +84,9 @@ void Scene::Update()
 
 		m_hud->Update();
 
-		//m_uiBase->Update();
+		m_score->Update();
+
+		m_countDown->Update();
 
 }
 
@@ -147,6 +153,11 @@ void Scene::Init()
 	m_hud = new Hud();
 	m_hud->Init();
 
+	m_score = new Score();
+	m_score->Init();
+
+	m_countDown = new CountDown();
+	m_countDown->Init();
 	/*m_uiBase = new UiBase();
 	m_uiBase->Init();*/
 	//m_hit->SetTarget(m_bird, m_rifleBullet);
@@ -198,6 +209,9 @@ void Scene::Release()
 
 	if (m_hud) delete m_hud;
 
+	if (m_score) delete m_score;
+
+	if (m_countDown) delete m_countDown;
 	//if (m_uiBase) delete m_uiBase;
 }
 
