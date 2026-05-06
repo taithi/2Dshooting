@@ -10,7 +10,8 @@ public:
 	void Init() override;
 	void Update() override;
 	void Draw() override;
-	void SetScore(int cou) { m_countDown = cou; }
+	void SetCount(int cou) { m_countDown += cou; }
+	
 	int GetScore() { return m_countDown; }
 private:
 

@@ -4,7 +4,7 @@ void Balloon::Init()
 {
 	tex.Load("Texture/balloon.png");
 
-	float y = rand() % 597 - 298;
+	float y = rand() % 407 - 203;
 	pos = { 660,y };
 
 	move.x = -0.5;
@@ -33,7 +33,7 @@ void Balloon::Update()
 		{
 			pos.x = 660;
 
-			pos.y = rand() % 597 - 298;
+			pos.y = rand() % 407 - 203;
 
 			//再度出現するときにも、中身を再抽選する
 			m_dropItem = (TargetBase::item)(rand() % 3);
@@ -50,7 +50,7 @@ void Balloon::Update()
 		if (m_respawnCount >= 900)
 		{
 			// 15秒経過したら復活
-			float y = rand() % 597 - 298;
+			float y = rand() % 407 - 203;;
 			pos = { 660, y };   // 右端に戻す
 			move.x = -0.5;      // 移動速度を戻す
 			flg = true;         // 出現フラグON

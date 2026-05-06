@@ -6,8 +6,7 @@ void ReflectiveBlock::Init()
 	// x軸: -500 ～ 576
 	float x = rand() % 1077 - 500;
 
-	// y軸: -298 ～ 298
-	float y = rand() % 597 - 298;
+	float y = rand() % 502 - 298;
 	pos = { x,y };
 	timerCount = 0;
 	flg = true;
@@ -27,8 +26,7 @@ void ReflectiveBlock::Update()
 			// x軸: -500 ～ 576
 			float x = rand() % 1077 - 500;
 
-			// y軸: -298 ～ 298
-			float y = rand() % 597 - 298;
+			float y = rand() % 502 - 298;
 			pos = { x,y };
 			flg = true;
 			timerCount = 0;

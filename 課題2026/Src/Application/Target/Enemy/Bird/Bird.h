@@ -14,12 +14,12 @@ public:
 	void Update()override;
 	void Draw()override;
 	
-	int GetTimerCount() { return timerCount; }
+	int GetTimerCount() { return timeCount; }
 	int GetNum() { return birdNum; }
 private:
 	void Release();
 	const int birdNum = 3;
-	int timerCount; // タイマー用のカウンタ
+	int m_timeCount; // タイマー用のカウンタ
 //	Math::Vector2 pos;
 };
 

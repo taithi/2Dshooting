@@ -20,37 +20,39 @@
 
 void Scene::Draw2D()
 {
-	
-	for (int i = 0; i < BIRD_NUM; i++)
 	{
+
+		for (int i = 0; i < BIRD_NUM; i++)
+		{
 			m_bird[i]->Draw();
+		}
+
+		for (int i = 0; i < REF_Num; i++)
+		{
+			m_refBlock[i]->Draw();
+		}
+		m_forecastLine->Draw();
+		m_playerMove->Draw();
+
+		m_balloon->Draw();
+
+		m_timer->Draw();
+
+		m_refBlockMini->Draw();
+
+		m_bell->Draw();
+
+		m_ufo->Draw();
+
+		m_hud->Draw();
+
+		m_score->Draw();
+		m_countDown->Draw();
+
+		m_rifleBullet->Draw();
+
+		m_player->Draw();
 	}
-	
-	for (int i = 0; i< REF_Num; i++)
-	{
-		m_refBlock[i]->Draw();
-	}
-	m_forecastLine->Draw();
-	m_playerMove->Draw();
-
-	m_balloon->Draw();
-
-	m_timer->Draw();
-
-	m_refBlockMini->Draw();
-
-	m_bell->Draw();
-
-	m_ufo->Draw();
-
-	m_hud->Draw();
-
-	m_score->Draw();
-	m_countDown->Draw();
-
-	m_rifleBullet->Draw();
-
-	m_player->Draw();
 }
 
 void Scene::Update()
@@ -59,8 +61,9 @@ void Scene::Update()
 	m_rifleBullet->Update();
 	for (int i = 0; i < BIRD_NUM; i++)
 	{
-			m_bird[i]->Update();
 			m_hit->CharaHit(m_rifleBullet, m_bird[i]);
+			m_bird[i]->Update();
+			
 	}
 		for (int i = 0; i < REF_Num; i++)
 		{
@@ -76,6 +79,7 @@ void Scene::Update()
 		m_bell->Update();
 
 		m_timer->Update();
+		m_timer->SetCountDown(m_countDown);
 
 		m_refBlockMini->Update();
 
@@ -85,6 +89,7 @@ void Scene::Update()
 		m_hud->Update();
 
 		m_score->Update();
+		
 
 		m_countDown->Update();
 
@@ -94,13 +99,13 @@ void Scene::Init()
 {
 	//アプリ起動時に1回だけ現在の時間を使って乱数を設定する
 	srand((unsigned int)time(nullptr));
-	m_hit = new Hit();
 
+	m_hit = new Hit();
 
 	for (int i = 0; i < BIRD_NUM; i++)
 	{
 		m_bird[i] = new Bird();
-		m_bird[i]->Init(); 
+		m_bird[i]->Init();
 	}
 
 	for (int i = 0; i < REF_Num; i++)
@@ -109,9 +114,6 @@ void Scene::Init()
 		m_refBlock[i]->Init();
 	}
 
-	// 画像の読み込み処理
-	
-	// 修正例 — Scene::Init
 	m_player = new Player();
 	m_player->Init();
 
@@ -123,32 +125,24 @@ void Scene::Init()
 
 	m_rifleBullet = new RifleBullet();
 	m_rifleBullet->Init();
-	m_rifleBullet->SetPlayer(m_player);
-	m_rifleBullet->SetPlayerMove(m_playerMove); 
+
 	m_bulletBase = new BulletBase();
 	m_bulletBase->Init();
-	//m_bulletBase->SetPlayerMoove(m_playerMove);
 
 	m_forecastLine = new ForecastLine();
 	m_forecastLine->Init();
-	m_forecastLine->SetPlayer(m_player);
-	m_forecastLine->SetPlayerMove(m_playerMove);
 
 	m_bell = new Bell();
 	m_bell->Init();
-	m_bell->SetTagetBase(m_balloon);
-	
+
 	m_timer = new Timer();
 	m_timer->Init();
-	m_timer->SetTagetBase(m_balloon);
 
 	m_refBlockMini = new RefBlockMini();
 	m_refBlockMini->Init();
-	m_refBlockMini->SetTagetBase(m_balloon);
 
 	m_ufo = new Ufo();
 	m_ufo->Init();
-	m_ufo->SetBullet(m_rifleBullet);
 
 	m_hud = new Hud();
 	m_hud->Init();
@@ -158,6 +152,24 @@ void Scene::Init()
 
 	m_countDown = new CountDown();
 	m_countDown->Init();
+
+	m_hit->SetScore(m_score);
+
+	// ※注：m_birdは配列なので、とりあえず[0]番目を渡す（必要ならScore側も配列対応にしてください）
+	m_score->SetBird(m_bird[0]);
+	m_score->SetUfo(m_ufo);
+
+	m_rifleBullet->SetPlayer(m_player);
+	m_rifleBullet->SetPlayerMove(m_playerMove);
+
+	m_forecastLine->SetPlayer(m_player);
+	m_forecastLine->SetPlayerMove(m_playerMove);
+
+	m_bell->SetTagetBase(m_balloon);
+	m_timer->SetTagetBase(m_balloon);
+	m_refBlockMini->SetTagetBase(m_balloon);
+
+	m_ufo->SetBullet(m_rifleBullet);
 	/*m_uiBase = new UiBase();
 	m_uiBase->Init();*/
 	//m_hit->SetTarget(m_bird, m_rifleBullet);

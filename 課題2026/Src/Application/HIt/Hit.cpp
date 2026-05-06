@@ -2,6 +2,7 @@
 #include"../Bullet/RifleBullet/RifleBullet.h"
 #include"../Target/ReflectiveBlock/ReflectiveBlock.h"
 #include"../Target/TargetBase/TargetBase.h"
+#include"../UI/Score/Score.h"
 
 void Hit::CharaHit(RifleBullet* rifleBullet, TargetBase* targetBase)
 {
@@ -27,7 +28,7 @@ void Hit::CharaHit(RifleBullet* rifleBullet, TargetBase* targetBase)
 			m_rifleBullet->SetFlg(false);
 			m_rifleBullet->SetPos(pos);
 			m_targetBase->SetFlg(false);
-			
+			m_score->SetScoFlg(true);
 		}
 	}
 }
@@ -73,6 +74,7 @@ void Hit::BulletBlock(RifleBullet* rifleBullet, ReflectiveBlock* refBlock)
 		{
 			velocity.x *= -2.0f; // 横反射
 			refBlock->SetFlg(false);
+			m_score->SetRefFlg(true);
 		}
 
 		// 上下の衝突チェック (前のフレームでは縦の範囲外だったか)
@@ -85,7 +87,7 @@ void Hit::BulletBlock(RifleBullet* rifleBullet, ReflectiveBlock* refBlock)
 
 		// 速度を更新
 		rifleBullet->SetMove(velocity);
-
+		m_score->SetRefFlg(true);
 	}
 }
 

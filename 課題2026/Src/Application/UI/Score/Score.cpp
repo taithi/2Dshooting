@@ -1,24 +1,44 @@
 #include"Score.h"
+#include"../../Target/Enemy/Bird/Bird.h"
+#include"../../Target/Enemy/Ufo/Ufo.h"
 
 void Score::Init()
 {
 	tex.Load("Texture/number.png");
 	m_score = 0;
+	m_refFlg = false;
 }
 
 void Score::Update()
 {
-	if (m_score > 99999)
 	{
-		m_score = 99999;
+		if (m_score > 99999)
+		{
+			m_score = 99999;
+		}
+
+		int tmp = m_score;
+
+		for (int i = maxDigits - 1; i >= 0; --i)
+		{
+			digits[i] = tmp % 10;
+			tmp /= 10;
+		}
 	}
 
-	int tmp = m_score;
-
-	for (int i = maxDigits - 1; i >= 0; --i)
 	{
-		digits[i] = tmp % 10;
-		tmp /= 10;
+		if (!m_bird->GetFlg() || !m_ufo->GetFlg() && m_refFlg == true&& scoFlg == true)
+		{
+			m_score+=200;
+			m_refFlg = false;
+			scoFlg = false;
+		}
+		else if (!m_bird->GetFlg() || !m_ufo->GetFlg() && m_refFlg == false&&scoFlg== true)
+		{
+			m_score += 100;
+			scoFlg = false;
+		}
+
 	}
 
 	mat = Math::Matrix::CreateTranslation(pos.x, pos.y, 0);

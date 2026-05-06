@@ -1,5 +1,5 @@
 #include "Timer.h"
-
+#include"../../../UI/CountDown/CountDown.h"
 #include"../Balloon/Balloon.h"
 
 void Timer::Init()
@@ -22,12 +22,13 @@ void Timer::Update()
 		{
 
 			pos = m_bulloon->GetPos();
-			flg = true;
 			move = { 0,0 };
 			flg = true;
 			timeCount = 0;
 			objectFlg = 1.0f;
 			m_bulloon->SetDroped(true);
+			m_countDown->SetCount(5);
+			flg = true;
 		}
 
 	}
@@ -75,7 +76,7 @@ void Timer::Draw()
 	{
 		Math::Color color = { 1,1,1,objectFlg };
 		SHADER.m_spriteShader.SetMatrix(mat);
-		SHADER.m_spriteShader.DrawTex(&tex, Math::Rectangle(0, 0, 64, 64), &color);
+		SHADER.m_spriteShader.DrawTex(&tex, Math::Rectangle(0, 0, 64, 91), &color);
 	}
 
 }

@@ -95,31 +95,31 @@ void Ufo::Update()
 	if (pos.x > 640 - margin) {
 		pos.x = 640 - margin; // 【常に実行】これ以上外に出ないようにする
 		if (moveCoolTime == 0) {
-			move.x *= -2; move.y += -10;
+			move.x *= -2; move.y *= -3;
 			moveCoolTime = 60; // 1秒間のクールタイムへ
 		}
 	}
 	// 左端
 	if (pos.x < -640 + margin) {
-		pos.x = -640 + margin; // 【常に実行】
+		pos.x = -640 + margin;
 		if (moveCoolTime == 0) {
-			move.x *= -2; move.y += 10;
+			move.x *= -2; move.y *= -2;
 			moveCoolTime = 60;
 		}
 	}
 	// 上端
-	if (pos.y > 360 - margin) {
-		pos.y = 360 - margin; // 【常に実行】
+	if (pos.y > 265 - margin) {
+		pos.y = 265 - margin; 
 		if (moveCoolTime == 0) {
-			move.y *= -2; move.x += 20;
+			move.y *= -2; move.x *= 1;
 			moveCoolTime = 60;
 		}
 	}
 	// 下端
 	if (pos.y < -360 + margin) {
-		pos.y = -360 + margin; // 【常に実行】
+		pos.y = -360 + margin; 
 		if (moveCoolTime == 0) {
-			move.y *= -2; move.x += 20;
+			move.y *= -2; move.x *= 3;
 			moveCoolTime = 60;
 		}
 	}

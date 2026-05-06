@@ -7,20 +7,19 @@ void Bird::Init()
 	// x軸: -500 ～ 576
 	float x = rand() % 1077 - 500;
 
-	// y軸: -298 ～ 298
-	float y = rand() % 597 - 298;
+	float y = rand() % 407 - 203;
 	
 	pos = { x,y };
 	move = { 0,0};
 	flg = true;
 	radius = 16;
-	timerCount = 0;
+	m_timeCount = 0;
 	
 }
 
 void Bird::Update()
 {
-
+	//OutputDebugStringA("Bird Update Running\n");
 	/*pos.x -= 3.0f;
 
 	if (pos.x < -640)
@@ -32,20 +31,20 @@ void Bird::Update()
 	{
 		//pos = { -9999.0f, -9999.0f };
 		// 毎フレームカウントを増やす
-		timerCount++;
+		m_timeCount++;
 
 		// 5秒経過したか判定 (60fps * 3秒 = 300フレーム)
-		if (timerCount >= 3 * 60)
+	//	if (m_timeCount >= 3 * 60)
 		{
 			// x軸: -500 ～ 576
+			//srand((unsigned int)time(nullptr));
 			float x = rand() % 1077 - 500;
 
-			// y軸: -298 ～ 298
-			float y = rand() % 597 - 298;
+			float y = rand() % 407 - 203;
 
 			pos = { x,y };
 			flg = true;
-			timerCount = 0; // タイマーをリセット
+			m_timeCount = 0; // タイマーをリセット
 
 		}
 	}
