@@ -8,7 +8,7 @@ void Ufo::Init()
     flg = true;
     radius = 40;
     pos = { 300.0f, 0.0f }; // UFOの初期位置
-    move = { -2.0f, 0.0f };
+    move = { -10.0f, 0.0f };
 }
 
 void Ufo::Update()
@@ -90,37 +90,42 @@ void Ufo::Update()
 
 
 	float margin = 50.0f;
+	moveCoolTime--;
+	if (moveCoolTime < 0)
+	{
+		moveCoolTime = 0;
+	}
 
 	// 右端
-	if (pos.x > 640 - margin) {
-		pos.x = 640 - margin; // 【常に実行】これ以上外に出ないようにする
+	if (pos.x > 640-32 - margin) {
+		pos.x = 640 - 32 - margin; // 
 		if (moveCoolTime == 0) {
-			move.x *= -2; move.y *= -3;
-			moveCoolTime = 60; // 1秒間のクールタイムへ
+			move.x *= -1; move.y *= -1;
+			moveCoolTime = 30; // 1秒間のクールタイムへ
 		}
 	}
 	// 左端
-	if (pos.x < -640 + margin) {
-		pos.x = -640 + margin;
+	if (pos.x < -640 + 32 + margin) {
+		pos.x = -640 + 32 + margin;
 		if (moveCoolTime == 0) {
-			move.x *= -2; move.y *= -2;
-			moveCoolTime = 60;
+			move.x *= -1; move.y *= -1;
+			moveCoolTime = 30;
 		}
 	}
 	// 上端
-	if (pos.y > 265 - margin) {
-		pos.y = 265 - margin; 
+	if (pos.y > 265 - 32 - margin) {
+		pos.y = 265 - 32 - margin;
 		if (moveCoolTime == 0) {
-			move.y *= -2; move.x *= 1;
-			moveCoolTime = 60;
+			move.y *= -1; move.x *= -3;
+			moveCoolTime = 30;
 		}
 	}
 	// 下端
-	if (pos.y < -360 + margin) {
-		pos.y = -360 + margin; 
+	if (pos.y < -360 - 32 + margin) {
+		pos.y = -360 - 32 + margin;
 		if (moveCoolTime == 0) {
-			move.y *= -2; move.x *= 3;
-			moveCoolTime = 60;
+			move.y *= -1; move.x *= -3;
+			moveCoolTime = 30;
 		}
 	}
 
